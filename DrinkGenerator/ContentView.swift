@@ -9,13 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var bottle = ""
-    var bottles = ["gin", "rum", "amaro", "lime juice", "demerera syrup"]
+    @State private var bottles = ["gin", "rum", "amaro", "lime juice", "demerera syrup"]
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("First, what cocktail ingredients do you have on hand?")) {
                     TextField("Enter your bottles here", text: $bottle)
+                    HStack {
+                        Spacer()
+                        Button("Add Ingredient") {
+                            bottles.append(bottle)
+                            bottle = ""
+                        }
+                        Spacer()
+                    }
+                    //                    .foregroundColor(Color.white)
+                    //                    .padding()
+                    //                    .background(Color.blue)
+                    //                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
                 }
                 Section(header: Text("Your bar so far...")) {
                     List {
@@ -27,18 +39,18 @@ struct ContentView: View {
                         EditButton()
                     }
                 }
-                Section {
+                Section(header: Text("Next you'll need to categorize these options...")) {
                     HStack {
-                        Text("Next we'll need to categorize these options.")
-                            .foregroundColor(Color.white)
-                            
-                    Button("Let's go") {
-                        
+                        Spacer()
+                        Button("Let's go!") {
+                            //Hook up button action here
+                        }
+                        Spacer()
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                    }
+                    //                        .foregroundColor(Color.white)
+                    //                        .padding()
+                    //                        .background(Color.blue)
+                    //                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
                 }
             }
             .navigationTitle("Cocktail Generator")
