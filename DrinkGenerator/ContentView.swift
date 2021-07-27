@@ -24,10 +24,6 @@ struct ContentView: View {
                         }
                         Spacer()
                     }
-                    //                    .foregroundColor(Color.white)
-                    //                    .padding()
-                    //                    .background(Color.blue)
-                    //                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
                 }
                 Section(header: Text("Your bar so far...")) {
                     List {
@@ -47,10 +43,6 @@ struct ContentView: View {
                         }
                         Spacer()
                     }
-                    //                        .foregroundColor(Color.white)
-                    //                        .padding()
-                    //                        .background(Color.blue)
-                    //                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
                 }
             }
             .navigationTitle("Cocktail Generator")
