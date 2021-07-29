@@ -7,23 +7,23 @@
 
 import Foundation
 
-class CocktailAPI {
-    func parseIngredients(from data: Data) {
+struct CocktailAPI {
+    func decode<T:Decodable>(_ type: T.Type, from urlString: String) -> T {
+        guard let url = URL(string: urlString) else {
+            fatalError("Failed to cast urlString as url.")
+        }
+
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("Failed to load data from url.")
+        }
+
         let decoder = JSONDecoder()
-        
-        if let ingredientArray = try? decoder.decode(IngredientList.self, from: data) {
-            for item in ingredientArray.drinks {
-                // create an array of item.stringIngredient1 or skip this for loop and do something with the whole array this returns
-            }
+
+        guard let loaded = try? decoder.decode(T.self, from: data) else {
+            fatalError("Failed to decode data.")
+
         }
-    }
-    
-    func fetchIngredients() {
-        let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-        
-        if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
-            parseIngredients(from: data)
-            return
-        }
+
+        return loaded
     }
 }
