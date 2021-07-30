@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection: String?
     let bottles: [String] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         let cocktailAPI = CocktailAPI()
@@ -28,43 +29,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("First select the cocktail ingredients you have on hand")) {
-                    List {
-                        ForEach(bottles.sorted(), id: \.self) {
-                            Text("\($0.capitalized)")
-                            //Add subtitle with category?
-                        }
-                        HStack {
-                            Spacer()
-                            Button("Add Ingredient") {
-                                bottlesSelected.append(bottle)
-                                bottle = ""
-                            }
-                            Spacer()
-                        }
+                Section(header: Text("Tap to select the cocktail ingredients you have on hand")) {
+                    //Add a sub-header that indicates a selection limit of 10 ingredients
+                    List(bottles.sorted(), id: \.self, selection: $selection) { bottle in
+                        CheckView(isChecked: false, title: bottle.capitalized)
                     }
                 }
-                Section(header: Text("Your bar so far...")) {
-                    List {
-                        ForEach(bottlesSelected, id: \.self) {
-                            Text("\($0)")
-                        }
-                    }
-                    .toolbar {
-                        EditButton()
-                    }
-                }
-                Section(header: Text("Next you'll need to categorize these options...")) {
-                    HStack {
-                        Spacer()
-                        Button("Let's go!") {
-                            //Hook up button action here
-                        }
-                        Spacer()
-                    }
-                }
+//                Section(header: Text("Your bar so far...")) {
+//                    List {
+//                        ForEach(bottlesSelected, id: \.self) {
+//                            Text("\($0)")
+//                        }
+//                    }
+//                }
             }
             .navigationTitle("Cocktail Generator")
+            .toolbar {
+                EditButton()
+            }
         }
     }
 }
