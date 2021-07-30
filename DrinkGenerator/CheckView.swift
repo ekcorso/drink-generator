@@ -25,3 +25,9 @@ struct CheckView: View {
         }
     }
 }
+
+struct CheckView_Previews: PreviewProvider {
+    static var previews: some View {
+        CheckView(isChecked: false, title: "Dark Rum")
+    }
+}
