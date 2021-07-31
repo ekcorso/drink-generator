@@ -17,14 +17,14 @@ struct ContentView: View {
         var bottles = [String]()
         for drink in drinks {
             let strBottle = drink.strIngredient1
-            bottles.append(strBottle)
+            bottles.append(strBottle.capitalized)
         }
         
         return bottles
     }()
     
     @State private var bottle = ""
-    @State private var bottlesSelected = ["gin", "rum", "amaro", "lime juice", "demerera syrup"]
+    @State private var bottlesSelected = [String]()
     
     var body: some View {
         NavigationView {
@@ -32,7 +32,10 @@ struct ContentView: View {
                 Section(header: Text("Tap to select the cocktail ingredients you have on hand")) {
                     //Add a sub-header that indicates a selection limit of 10 ingredients
                     List(bottles.sorted(), id: \.self, selection: $selection) { bottle in
-                        CheckView(isChecked: false, title: bottle.capitalized)
+                        let checkView = CheckView(isChecked: false, title: bottle.capitalized)
+                            checkView.onTapGesture {
+                                bottlesSelected.append(bottle)
+                            }
                     }
                 }
 //                Section(header: Text("Your bar so far...")) {

@@ -9,5 +9,5 @@ import Foundation
 
 struct Bottle: Hashable {
     var name: String
-    var category: String
+    //var category: String
 }
