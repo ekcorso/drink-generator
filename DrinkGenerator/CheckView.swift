@@ -18,10 +18,10 @@ struct CheckView: View {
     var body: some View {
         HStack{
             Image(systemName: isChecked ? "checkmark.circle" : "circle")
-                .onTapGesture {
-                    toggle()
-                }
             Text(title)
+        }
+        .onTapGesture {
+            toggle()
         }
     }
 }
