@@ -8,51 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: String?
-    let bottles: [String] = {
+    let bottles: [Bottle] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         let cocktailAPI = CocktailAPI()
         let drinks = cocktailAPI.decode(IngredientList.self, from: urlString).drinks
         
-        var bottles = [String]()
+        var bottles = [Bottle]()
         for drink in drinks {
-            let strBottle = drink.strIngredient1
-            bottles.append(strBottle.capitalized)
+            let bottleName = drink.strIngredient1
+            bottles.append(Bottle(name: bottleName.capitalized))
         }
-        
-        return bottles
+                
+        return bottles.sorted()
     }()
-    
-    @State private var bottle = ""
-    @State private var bottlesSelected = [String]()
+    @State private var multiSelection = Set<UUID>()
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Tap to select the cocktail ingredients you have on hand")) {
-                    //Add a sub-header that indicates a selection limit of 10 ingredients
-                    List(bottles.sorted(), id: \.self, selection: $selection) { bottle in
-                        let checkView = CheckView(isChecked: false, title: bottle.capitalized)
-                            checkView.onTapGesture {
-                                bottlesSelected.append(bottle)
-                            }
-                    }
+            Section {
+                //Text("Tap to select the cocktail ingredients you have on hand")
+                List(bottles, selection: $multiSelection) {
+                    Text($0.name)
                 }
-//                Section(header: Text("Your bar so far...")) {
-//                    List {
-//                        ForEach(bottlesSelected, id: \.self) {
-//                            Text("\($0)")
-//                        }
-//                    }
-//                }
-            }
-            .navigationTitle("Cocktail Generator")
-            .toolbar {
-                EditButton()
+                .navigationTitle("\(multiSelection.count) Ingredients Selected")
+                .toolbar {
+                    EditButton()
+                }
             }
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
