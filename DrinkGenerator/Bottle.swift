@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Bottle: Hashable {
+struct Bottle: Identifiable, Hashable, Comparable {
+    static func < (lhs: Bottle, rhs: Bottle) -> Bool {
+        lhs.name < rhs.name
+    }
+    
     var name: String
+    var id = UUID()
+    
     //var category: String
 }
