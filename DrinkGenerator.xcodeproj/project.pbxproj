@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */; };
 		FC92E7B026AF9657007DAD10 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7AF26AF9657007DAD10 /* IngredientList.swift */; };
 		FC92E7B226AF96A4007DAD10 /* CocktailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */; };
 		FC92E7B426AF98C7007DAD10 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7B326AF98C7007DAD10 /* Bottle.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		FC92E7AF26AF9657007DAD10 /* IngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientList.swift; sourceTree = "<group>"; };
 		FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPI.swift; sourceTree = "<group>"; };
 		FC92E7B326AF98C7007DAD10 /* Bottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				FCF28FC226A0B3F600930F0F /* ContentView.swift */,
 				FC92E7B326AF98C7007DAD10 /* Bottle.swift */,
 				FC92E7AF26AF9657007DAD10 /* IngredientList.swift */,
+				A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */,
 				FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */,
 				FCF28FC426A0B3FB00930F0F /* Assets.xcassets */,
 				FCF28FC926A0B3FB00930F0F /* Info.plist */,
@@ -150,6 +153,7 @@
 				FC92E7B226AF96A4007DAD10 /* CocktailAPI.swift in Sources */,
 				FCF28FC326A0B3F600930F0F /* ContentView.swift in Sources */,
 				FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */,
+				A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */,
 				FC92E7B426AF98C7007DAD10 /* Bottle.swift in Sources */,
 				FC92E7B026AF9657007DAD10 /* IngredientList.swift in Sources */,
 			);

@@ -8,31 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    let bottles: [Bottle] = {
-        let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-        let cocktailAPI = CocktailAPI()
-        let drinks = cocktailAPI.decode(IngredientList.self, from: urlString).drinks
-        
-        var bottles = [Bottle]()
-        for drink in drinks {
-            let bottleName = drink.strIngredient1
-            bottles.append(Bottle(name: bottleName.capitalized))
-        }
-                
-        return bottles.sorted()
-    }()
-    @State private var multiSelection = Set<UUID>()
-    
     var body: some View {
         NavigationView {
-            Section {
-                //Text("Tap to select the cocktail ingredients you have on hand")
-                List(bottles, selection: $multiSelection) {
-                    Text($0.name)
+            Form {
+                Section(header: Text("Choose bottles")) {
+                    NavigationLink(destination: IngredientView()) {
+                        Text("Select bottles")
+                    }
                 }
-                .navigationTitle("\(multiSelection.count) Ingredients Selected")
-                .toolbar {
-                    EditButton()
+                Section(header: Text("Ready to see some cocktail ideas?")) {
+                    
                 }
             }
         }
