@@ -11,6 +11,7 @@
 		FC92E7B026AF9657007DAD10 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7AF26AF9657007DAD10 /* IngredientList.swift */; };
 		FC92E7B226AF96A4007DAD10 /* CocktailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */; };
 		FC92E7B426AF98C7007DAD10 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7B326AF98C7007DAD10 /* Bottle.swift */; };
+		FCCAD98A26BDFB46004575F7 /* CDBRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCAD98926BDFB46004575F7 /* CDBRecipeView.swift */; };
 		FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF28FC026A0B3F600930F0F /* DrinkGeneratorApp.swift */; };
 		FCF28FC326A0B3F600930F0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF28FC226A0B3F600930F0F /* ContentView.swift */; };
 		FCF28FC526A0B3FB00930F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF28FC426A0B3FB00930F0F /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		FC92E7AF26AF9657007DAD10 /* IngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientList.swift; sourceTree = "<group>"; };
 		FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPI.swift; sourceTree = "<group>"; };
 		FC92E7B326AF98C7007DAD10 /* Bottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
+		FCCAD98926BDFB46004575F7 /* CDBRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDBRecipeView.swift; sourceTree = "<group>"; };
 		FCF28FBD26A0B3F600930F0F /* DrinkGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF28FC026A0B3F600930F0F /* DrinkGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkGeneratorApp.swift; sourceTree = "<group>"; };
 		FCF28FC226A0B3F600930F0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				FC92E7AF26AF9657007DAD10 /* IngredientList.swift */,
 				A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */,
 				FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */,
+				FCCAD98926BDFB46004575F7 /* CDBRecipeView.swift */,
 				FCF28FC426A0B3FB00930F0F /* Assets.xcassets */,
 				FCF28FC926A0B3FB00930F0F /* Info.plist */,
 				FCF28FC626A0B3FB00930F0F /* Preview Content */,
@@ -156,6 +159,7 @@
 				A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */,
 				FC92E7B426AF98C7007DAD10 /* Bottle.swift in Sources */,
 				FC92E7B026AF9657007DAD10 /* IngredientList.swift in Sources */,
+				FCCAD98A26BDFB46004575F7 /* CDBRecipeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
