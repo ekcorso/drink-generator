@@ -11,11 +11,11 @@ struct IngredientView: View {
     let bottles: [Bottle] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         let cocktailAPI = CocktailAPI()
-        let drinks = cocktailAPI.decode(IngredientList.self, from: urlString).drinks
+        let ingredients = cocktailAPI.decode(IngredientList.self, from: urlString).drinks
         
         var bottles = [Bottle]()
-        for drink in drinks {
-            let bottleName = drink.strIngredient1
+        for ingredient in ingredients {
+            let bottleName = ingredient.strIngredient1
             bottles.append(Bottle(name: bottleName.capitalized))
         }
         
