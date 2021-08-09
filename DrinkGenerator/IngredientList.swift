@@ -8,9 +8,9 @@
 import Foundation
 
 struct IngredientList: Codable {
-    let drinks: [Drink]
+    let drinks: [Ingredient]
 }
 
-struct Drink: Codable {
+struct Ingredient: Codable {
     let strIngredient1: String
 }
