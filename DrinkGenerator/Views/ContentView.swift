@@ -24,7 +24,7 @@ struct ContentView: View {
                         showCocktailCombos()
                         //Use navigation link here instead
                     }
-                    NavigationLink(destination: CDBRecipeView()) {
+                    NavigationLink(destination: RecipeListView()) {
                         Text("Show me tried and true recipes")
                     }
                 }

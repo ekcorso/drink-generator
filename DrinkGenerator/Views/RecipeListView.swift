@@ -1,5 +1,5 @@
 //
-//  CDBRecipeView.swift
+//  RecipeListView.swift
 //  DrinkGenerator
 //
 //  Created by Emily Corso on 8/6/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CDBRecipeView: View {
+struct RecipeListView: View {
     @State private var selection = UUID()
     
     let drinks: [DrinkStub] = {
@@ -32,6 +32,6 @@ struct CDBRecipeView: View {
 
 struct CDBRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        CDBRecipeView()
+        RecipeListView()
     }
 }
