@@ -23,9 +23,10 @@ struct RecipeListView: View {
         NavigationView {
             Section {
                 List(drinks, id: \.id) { drink in
-                    Text(drink.strDrink)
+                    RecipeRow(recipe: drink)
                 }
             }
+            .navigationTitle("Tried & True Cocktails")
         }
     }
 }
