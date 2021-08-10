@@ -11,7 +11,14 @@ struct RecipeRow: View {
     let recipe: DrinkStub
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image("cocktail-icon-thumb")
+            
+            VStack(alignment: .center) {
+            Text(recipe.strDrink)
+                .padding()
+            }
+        }
     }
 }
 
