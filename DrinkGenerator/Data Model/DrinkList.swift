@@ -12,7 +12,7 @@ struct DrinkList: Codable {
 }
 
 struct DrinkStub: Codable {
-    let idDrink: Int
+    let idDrink: String
     let strDrink: String
     
     //should this be a URL?
@@ -20,7 +20,7 @@ struct DrinkStub: Codable {
 }
 
 extension DrinkStub: Identifiable {
-    var id: Int { return idDrink }
+    var id: Int { return Int(idDrink)! }
 }
 
 extension DrinkStub: Comparable {

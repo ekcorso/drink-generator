@@ -16,20 +16,13 @@ struct CDBRecipeView: View {
         let cocktailAPI = CocktailAPI()
         let drinks: [DrinkStub] = cocktailAPI.decode(DrinkList.self, from: urlString).drinks
         
-//        var drinkList: [String] = [String]()
-//
-//        for drinkStub in drinks {
-//            let drinkName: String = drinkStub.strDrink
-//            drinkList.append(drinkName.capitalized)
-//        }
-        
         return drinks.sorted()
     }()
     
     var body: some View {
         NavigationView {
             Section {
-                ForEach(drinks) { drink in
+                List(drinks, id: \.id) { drink in
                     Text(drink.strDrink)
                 }
             }
