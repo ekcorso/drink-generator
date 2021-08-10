@@ -24,9 +24,8 @@ struct ContentView: View {
                         showCocktailCombos()
                         //Use navigation link here instead
                     }
-                    Button("Show me tried and true recipes") {
-                        showCocktailDbRecipes()
-                        //Use navigation link here instead
+                    NavigationLink(destination: CDBRecipeView()) {
+                        Text("Show me tried and true recipes")
                     }
                 }
                 

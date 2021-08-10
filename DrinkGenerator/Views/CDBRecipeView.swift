@@ -8,27 +8,31 @@
 import SwiftUI
 
 struct CDBRecipeView: View {
+    @State private var selection = UUID()
     
-    let drinkList: [DrinkList] = {
+    let drinks: [DrinkStub] = {
         // TODO: break this url into base + search params. This URL is currently hardcoded to show stubs for recipes with Dry Vermouth and Gin
         let urlString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Dry_Vermouth,Gin"
         let cocktailAPI = CocktailAPI()
-        let drinks = cocktailAPI.decode(DrinkList.self, from: urlString).drinks
+        let drinks: [DrinkStub] = cocktailAPI.decode(DrinkList.self, from: urlString).drinks
         
-        var drinkList = [DrinkList]()
-        for drinkStub in drinkList {
-            let drinkName = drinkStub.strIngredient1
-            bottles.append(Bottle(name: bottleName.capitalized))
-        }
+//        var drinkList: [String] = [String]()
+//
+//        for drinkStub in drinks {
+//            let drinkName: String = drinkStub.strDrink
+//            drinkList.append(drinkName.capitalized)
+//        }
         
-        return bottles.sorted()
-        
-        
+        return drinks.sorted()
     }()
     
     var body: some View {
-        List {
-            
+        NavigationView {
+            Section {
+                ForEach(drinks) { drink in
+                    Text(drink.strDrink)
+                }
+            }
         }
     }
 }
