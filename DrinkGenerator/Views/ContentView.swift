@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var imageLoader: ImageLoader
-    @State var image: UIImage = UIImage()
-    
-    init(withURL url: String) {
-        imageLoader = ImageLoader(urlString: url)
-    }
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -31,15 +25,6 @@ struct ContentView: View {
                         showCocktailCombos()
                         //Use navigation link here instead
                     }
-                    Section {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
-                            .onReceive(imageLoader.didChange) { data in
-                                self.image = UIImage(data: data) ?? UIImage()
-                            }
-                    }
                     NavigationLink(destination: RecipeListView()) {
                         Text("Show me tried and true recipes")
                     }
@@ -54,14 +39,11 @@ struct ContentView: View {
         //Take user to generated combos page
         //Pass values from home bar to that page
     }
-    func showCocktailDbRecipes() {
-        //Take user to a list of recipes from the cocktail db containing any of the selected ingredients
-    }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(withURL: DrinkStub.example.strDrinkThumb)
+        ContentView()
     }
 }
