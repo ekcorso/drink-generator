@@ -15,7 +15,9 @@ struct RecipeRow: View {
             ImageView(withURL: recipe.strDrinkThumb)
             
             VStack(alignment: .center) {
-            Text(recipe.strDrink)
+                NavigationLink(destination: RecipeDetailView(recipe: recipe)){
+                    Text(recipe.strDrink)
+                }
                 .padding()
             }
         }
