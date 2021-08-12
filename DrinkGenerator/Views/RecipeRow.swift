@@ -13,7 +13,7 @@ struct RecipeRow: View {
     var body: some View {
         HStack {
             //Image("cocktail-icon-thumb")
-            
+            ImageView(withURL: recipe.strDrinkThumb)
             
             VStack(alignment: .center) {
             Text(recipe.strDrink)
