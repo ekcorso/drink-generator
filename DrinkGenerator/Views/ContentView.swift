@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var imageLoader: ImageLoader
+    @State var image: UIImage = UIImage()
+    
+    init(withURL url: String) {
+        imageLoader = ImageLoader(urlString: url)
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -23,6 +30,15 @@ struct ContentView: View {
                     Button("Show me Mr. Potatohead-style recipe ideas") {
                         showCocktailCombos()
                         //Use navigation link here instead
+                    }
+                    Section {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+                            .onReceive(imageLoader.didChange) { data in
+                                self.image = UIImage(data: data) ?? UIImage()
+                            }
                     }
                     NavigationLink(destination: RecipeListView()) {
                         Text("Show me tried and true recipes")
@@ -46,6 +62,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(withURL: DrinkStub.example.strDrinkThumb)
     }
 }

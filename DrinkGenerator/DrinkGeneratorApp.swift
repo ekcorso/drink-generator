@@ -11,7 +11,7 @@ import SwiftUI
 struct DrinkGeneratorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(withURL: DrinkStub.example.strDrinkThumb)
         }
     }
 }
