@@ -23,8 +23,30 @@ struct RecipeDetailView: View {
     var body: some View {
         VStack {
             ImageView(withURL: detailedRecipe.strDrinkThumb)
+            Divider()
             Text(detailedRecipe.strDrink)
+                .font(.title2)
+                .bold()
+            Divider()
+            Group {
+                Text("Ingredients")
+                    .bold()
+                Divider()
+            Text("""
+                Base Liquor
+                Some other liquor
+                Why not amaro
+                Citrus
+                Bitters
+                """)
+            }
+            //Divider()
             Text(detailedRecipe.strInstructions)
+                .padding()
+            Divider()
+            Text("Recommended Glassware: \(detailedRecipe.strGlass)")
+                .italic()
+                .frame(alignment: .leading)
         }
     }
 }
