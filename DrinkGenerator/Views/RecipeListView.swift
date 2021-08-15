@@ -20,14 +20,14 @@ struct RecipeListView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             Section {
                 List(drinks, id: \.id) { drink in
                     RecipeRow(recipe: drink)
                 }
             }
             .navigationTitle("Tried & True Cocktails")
-        }
+        //}
     }
 }
 

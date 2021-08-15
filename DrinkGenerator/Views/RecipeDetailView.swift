@@ -19,6 +19,8 @@ struct RecipeDetailView: View {
         
         return recipes[0]
     }
+    
+    //let ingredients: [String] = [detailedRecipe.strIngredient1]
         
     var body: some View {
         VStack {
@@ -32,15 +34,23 @@ struct RecipeDetailView: View {
                 Text("Ingredients")
                     .bold()
                 Divider()
-                Text("""
-                    \(detailedRecipe.strMeasure1 ?? "") \(detailedRecipe.strIngredient1 ?? "Jello")
-                    \(detailedRecipe.strMeasure2 ?? "") \(detailedRecipe.strIngredient2 ?? "Soup")
-                    \(detailedRecipe.strMeasure3 ?? "") \(detailedRecipe.strIngredient3 ?? "Mayo")
-                    \(detailedRecipe.strMeasure4 ?? "") \(detailedRecipe.strIngredient4 ?? "Armadillos")
-                    \(detailedRecipe.strMeasure5 ?? "") \(detailedRecipe.strIngredient5 ?? "Sawdust")
-                    \(detailedRecipe.strMeasure6 ?? "") \(detailedRecipe.strIngredient6 ?? "Coffee Grounds")
-                    \(detailedRecipe.strMeasure7 ?? "") \(detailedRecipe.strIngredient7 ?? "Weasles")
-                    """)
+                
+                //String interpolated text below works, but makes this very slow. Use the dummy text instead until there's a solution
+                
+                //                Text("""
+                //                    \(detailedRecipe.strMeasure1 ?? "") \(detailedRecipe.strIngredient1 ?? "Jello")
+                //                    \(detailedRecipe.strMeasure2 ?? "") \(detailedRecipe.strIngredient2 ?? "Soup")
+                //                    \(detailedRecipe.strMeasure3 ?? "") \(detailedRecipe.strIngredient3 ?? "Mayo")
+                //                    \(detailedRecipe.strMeasure4 ?? "") \(detailedRecipe.strIngredient4 ?? "Armadillos")
+                //                    \(detailedRecipe.strMeasure5 ?? "") \(detailedRecipe.strIngredient5 ?? "Sawdust")
+                //                    \(detailedRecipe.strMeasure6 ?? "") \(detailedRecipe.strIngredient6 ?? "Coffee Grounds")
+                //                    \(detailedRecipe.strMeasure7 ?? "") \(detailedRecipe.strIngredient7 ?? "Weasles")
+                //                    """)
+                //                Text("""
+                //                    stuff
+                //                    things
+                //                    other stuff
+                //                    """)
             }
             //Divider()
             Text(detailedRecipe.strInstructions)
