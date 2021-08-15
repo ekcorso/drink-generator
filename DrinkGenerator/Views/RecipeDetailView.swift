@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     let recipe: DrinkStub
-    
+
     var detailedRecipe: Recipe {
         let urlStringBase = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
         let recipeIdString = String(recipe.id)
@@ -32,13 +32,15 @@ struct RecipeDetailView: View {
                 Text("Ingredients")
                     .bold()
                 Divider()
-            Text("""
-                Base Liquor
-                Some other liquor
-                Why not amaro
-                Citrus
-                Bitters
-                """)
+                Text("""
+                    \(detailedRecipe.strMeasure1 ?? "") \(detailedRecipe.strIngredient1 ?? "Jello")
+                    \(detailedRecipe.strMeasure2 ?? "") \(detailedRecipe.strIngredient2 ?? "Soup")
+                    \(detailedRecipe.strMeasure3 ?? "") \(detailedRecipe.strIngredient3 ?? "Mayo")
+                    \(detailedRecipe.strMeasure4 ?? "") \(detailedRecipe.strIngredient4 ?? "Armadillos")
+                    \(detailedRecipe.strMeasure5 ?? "") \(detailedRecipe.strIngredient5 ?? "Sawdust")
+                    \(detailedRecipe.strMeasure6 ?? "") \(detailedRecipe.strIngredient6 ?? "Coffee Grounds")
+                    \(detailedRecipe.strMeasure7 ?? "") \(detailedRecipe.strIngredient7 ?? "Weasles")
+                    """)
             }
             //Divider()
             Text(detailedRecipe.strInstructions)
