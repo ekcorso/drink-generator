@@ -50,6 +50,7 @@ struct RecipeDetailView: View {
                     stuff
                     things
                     other stuff
+                    one more thing
                     """)
             }
             //Divider()
