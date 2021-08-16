@@ -53,7 +53,6 @@ struct RecipeDetailView: View {
                     one more thing
                     """)
             }
-            //Divider()
             Text(detailedRecipe.strInstructions)
                 .padding()
             Divider()
