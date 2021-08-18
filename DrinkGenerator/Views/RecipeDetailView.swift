@@ -20,7 +20,13 @@ struct RecipeDetailView: View {
         return recipes[0]
     }
     
-    //let ingredients: [String] = [detailedRecipe.strIngredient1]
+//    let ingredients: [String]
+//        //= [detailedRecipe.strIngredient1]
+//
+//    init(recipe: DrinkStub) {
+//        ingredients = [detailedRecipe.strIngredient1!]
+//        self.recipe = recipe
+//    }
         
     var body: some View {
         VStack {
