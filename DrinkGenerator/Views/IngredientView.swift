@@ -16,7 +16,7 @@ struct IngredientView: View {
         var bottles = [Bottle]()
         for ingredient in ingredients {
             let bottleName = ingredient.strIngredient1
-            bottles.append(Bottle(name: bottleName.capitalized))
+            bottles.append(Bottle(name: bottleName.capitalized, id: UUID()))
         }
         
         return bottles.sorted()
