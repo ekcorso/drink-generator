@@ -17,17 +17,27 @@ struct ComboView: View {
     }
         
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Section {
                 Text("Try this out:")
                     .bold()
                     .font(.title2)
             }
-            
+            Divider()
             Section {
                 ForEach(randomCombo) { item in
                     Text(item.name)
                 }
+            }
+            Divider()
+            Section {
+                Button("Generate new combo") {
+                    //Needs to shuffle the allCombos array
+                }
+                .padding()
+                .background(Color(.blue))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
             }
         }
 //        ForEach(Array(zip(allCombos.indicies, allCombos
