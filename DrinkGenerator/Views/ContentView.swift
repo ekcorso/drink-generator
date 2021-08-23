@@ -21,23 +21,20 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("Ready to see some cocktail options?")) {
-                    Button("Show me Mr. Potatohead-style recipe ideas") {
-                        showCocktailCombos()
-                        //Use navigation link here instead
-                    }
+                    
+                    NavigationLink(destination: ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])) {
+                            Text("Show me Mr. Potatohead-style recipe ideas")
+                        }
+                    
                     NavigationLink(destination: RecipeListView()) {
                         Text("Show me tried and true recipes")
                     }
+                    
                 }
                 
             }
             .navigationTitle("Cocktail Generator")
         }
-    }
-    
-    func showCocktailCombos() {
-        //Take user to generated combos page
-        //Pass values from home bar to that page
     }
 }
 
