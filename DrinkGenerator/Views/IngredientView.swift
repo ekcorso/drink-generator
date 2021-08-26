@@ -23,6 +23,16 @@ struct IngredientView: View {
     }()
     
     @State private var multiSelection = Set<UUID>()
+        
+    func printSelectedBottles(selections: Set<UUID>, bottles: [Bottle]) {
+        for selection in selections {
+            for bottle in bottles {
+                if bottle.id == selection {
+                    print(bottle.name)
+                }
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -31,8 +41,14 @@ struct IngredientView: View {
                     Text(multiSelection.count == 0 ? "Select up to 10" : "\(multiSelection.count) items selected")
                  }
                 Section {
-                    List(bottles, selection: $multiSelection) {
-                        Text($0.name)
+                    Button("Print selected") { printSelectedBottles(selections: multiSelection, bottles: bottles)
+                    }
+                }
+                Section {
+                    List(selection: $multiSelection) {
+                        ForEach(bottles, id: \.id) { item in
+                            Text(item.name)
+                        }
                     }
                 }
                 .toolbar {
