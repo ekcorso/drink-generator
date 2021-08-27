@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct IngredientView: View {
+    @State private var multiSelection = HomeBar()
+
     let bottles: [Bottle] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         let cocktailAPI = CocktailAPI()
@@ -21,9 +23,7 @@ struct IngredientView: View {
         
         return bottles.sorted()
     }()
-    
-    @State private var multiSelection = Set<UUID>()
-        
+            
     func printSelectedBottles(selections: Set<UUID>, bottles: [Bottle]) {
         for selection in selections {
             for bottle in bottles {
@@ -38,14 +38,14 @@ struct IngredientView: View {
         NavigationView {
             VStack {
                 Section {
-                    Text(multiSelection.count == 0 ? "Select up to 10" : "\(multiSelection.count) items selected")
+                    Text(multiSelection.bottleList.count == 0 ? "Select up to 10" : "\(multiSelection.bottleList.count) items selected")
                  }
                 Section {
-                    Button("Print selected") { printSelectedBottles(selections: multiSelection, bottles: bottles)
+                    Button("Print selected") { printSelectedBottles(selections: multiSelection.bottleList, bottles: bottles)
                     }
                 }
                 Section {
-                    List(selection: $multiSelection) {
+                    List(selection: $multiSelection.bottleList) {
                         ForEach(bottles, id: \.id) { item in
                             Text(item.name)
                         }
