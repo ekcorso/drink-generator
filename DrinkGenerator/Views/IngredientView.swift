@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientView: View {
-    @State private var multiSelection = HomeBar()
+    @State private var homeBar = HomeBar()
 
     let bottles: [Bottle] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
@@ -38,14 +38,14 @@ struct IngredientView: View {
         NavigationView {
             VStack {
                 Section {
-                    Text(multiSelection.bottleList.count == 0 ? "Select up to 10" : "\(multiSelection.bottleList.count) items selected")
+                    Text(homeBar.bottleList.count == 0 ? "Select up to 10" : "\(homeBar.bottleList.count) items selected")
                  }
                 Section {
-                    Button("Print selected") { printSelectedBottles(selections: multiSelection.bottleList, bottles: bottles)
+                    Button("Print selected") { printSelectedBottles(selections: homeBar.bottleList, bottles: bottles)
                     }
                 }
                 Section {
-                    List(selection: $multiSelection.bottleList) {
+                    List(selection: $homeBar.bottleList) {
                         ForEach(bottles, id: \.id) { item in
                             Text(item.name)
                         }

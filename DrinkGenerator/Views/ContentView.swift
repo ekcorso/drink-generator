@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var homebar: HomeBar
 
     var body: some View {
         NavigationView {
@@ -31,7 +32,6 @@ struct ContentView: View {
                     }
                     
                 }
-                
             }
             .navigationTitle("Cocktail Generator")
         }
