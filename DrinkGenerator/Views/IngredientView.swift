@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct IngredientView: View {
-    @State private var homeBar = HomeBar()
-
     let bottles: [Bottle] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         let cocktailAPI = CocktailAPI()
@@ -23,32 +21,32 @@ struct IngredientView: View {
         
         return bottles.sorted()
     }()
-            
-    func printSelectedBottles(selections: Set<UUID>, bottles: [Bottle]) {
-        for selection in selections {
-            for bottle in bottles {
-                if bottle.id == selection {
-                    print(bottle.name)
-                }
-            }
-        }
-    }
+    
+    @State private var homeBar = HomeBar()
+    @State private var selectedBottleIds = Set<UUID>()
+
     
     var body: some View {
         NavigationView {
             VStack {
                 Section {
                     Text(homeBar.bottleList.count == 0 ? "Select up to 10" : "\(homeBar.bottleList.count) items selected")
-                 }
+                }
                 Section {
-                    Button("Print selected") { printSelectedBottles(selections: homeBar.bottleList, bottles: bottles)
+                    Button("Print selected") {
+                        homeBar.add(bottles, from: selectedBottleIds)
+                        for selection in selectedBottleIds {
+                            for bottle in bottles {
+                                if bottle.id == selection {
+                                    print(bottle.name)
+                                }
+                            }
+                        }
                     }
                 }
                 Section {
-                    List(selection: $homeBar.bottleList) {
-                        ForEach(bottles, id: \.id) { item in
-                            Text(item.name)
-                        }
+                    List(bottles, selection: $selectedBottleIds) { bottle in
+                        Text(bottle.name)
                     }
                 }
                 .toolbar {

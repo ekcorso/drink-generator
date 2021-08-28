@@ -74,6 +74,7 @@
 		FCCC9F2C26C1806100C7E043 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				FC60341526D967B9003569D7 /* HomeBar.swift */,
 				FC92E7B326AF98C7007DAD10 /* Bottle.swift */,
 				FC92E7AF26AF9657007DAD10 /* IngredientList.swift */,
 				FCCAD98B26C0CAA6004575F7 /* Recipe.swift */,
@@ -87,7 +88,6 @@
 			children = (
 				FCF28FC226A0B3F600930F0F /* ContentView.swift */,
 				A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */,
-				FC60341526D967B9003569D7 /* HomeBar.swift */,
 				FCCAD98926BDFB46004575F7 /* RecipeListView.swift */,
 				FC964EC326C2FCAB008C0547 /* RecipeRow.swift */,
 				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
