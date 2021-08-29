@@ -34,19 +34,17 @@ struct IngredientView: View {
                 }
                 Section {
                     Button("Print selected") {
-                        homeBar.add(bottles, from: selectedBottleIds)
-                        for selection in selectedBottleIds {
-                            for bottle in bottles {
-                                if bottle.id == selection {
-                                    print(bottle.name)
-                                }
-                            }
+                        for bottle in homeBar.bottleList {
+                            print(bottle.name)
                         }
                     }
                 }
                 Section {
                     List(bottles, selection: $selectedBottleIds) { bottle in
                         Text(bottle.name)
+                    }
+                    .onTapGesture {
+                        homeBar.add(bottles, from: selectedBottleIds)
                     }
                 }
                 .toolbar {
