@@ -8,12 +8,12 @@
 import Foundation
 
 class HomeBar: ObservableObject {
-    @Published var bottleList = [Bottle]()
+    @Published var bottleList = Set<Bottle>()
     
     func add(_ bottles: [Bottle], from selections: Set<UUID>) {
         let newItems = bottles.filter { selections.contains($0.id) }
         for item in newItems {
-            bottleList.append(item)
+            bottleList.insert(item)
         }
     }
 }
