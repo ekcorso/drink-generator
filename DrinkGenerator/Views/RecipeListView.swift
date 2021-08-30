@@ -9,10 +9,13 @@ import SwiftUI
 
 struct RecipeListView: View {
     @State private var selection = UUID()
+    @State private var sampleHomeBar = HomeBar()
+    var homeBarBottles = ["Gin", "Dry Vermouth"]
     
     let drinks: [DrinkStub] = {
-        // TODO: break this url into base + search params. This URL is currently hardcoded to show stubs for recipes with Dry Vermouth and Gin
-        let urlString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Dry_Vermouth,Gin"
+        let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
+        let urlSearchTerms = "Dry_Vermouth,Gin"
+        let urlString = urlBaseString + urlSearchTerms
         let cocktailAPI = CocktailAPI()
         let drinks: [DrinkStub] = cocktailAPI.decode(DrinkList.self, from: urlString).drinks
         
