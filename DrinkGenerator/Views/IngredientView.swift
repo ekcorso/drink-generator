@@ -24,18 +24,26 @@ struct IngredientView: View {
     
     @State private var homeBar = HomeBar()
     @State private var selectedBottleIds = Set<UUID>()
-
     
     var body: some View {
         NavigationView {
             VStack {
                 Section {
-                    Text(homeBar.bottleList.count == 0 ? "Select up to 10" : "\(homeBar.bottleList.count) items selected")
+                    Text(selectedBottleIds.count == 0 ? "Select up to 10" : "\(selectedBottleIds.count) items selected")
                 }
                 Section {
                     Button("Print selected") {
+                        print("Homebar bottles:")
                         for bottle in homeBar.bottleList {
                             print(bottle.name)
+                        }
+                        print("Selector bottles:")
+                        for bottle in bottles {
+                            for id in selectedBottleIds {
+                                if bottle.id == id {
+                                    print(bottle.name)
+                                }
+                            }
                         }
                     }
                 }
@@ -44,6 +52,7 @@ struct IngredientView: View {
                         Text(bottle.name)
                     }
                     .onTapGesture {
+                        //This adds all but the last item. Seems that selectedBottleIds doesn't update until *after* the tap occurs
                         homeBar.add(bottles, from: selectedBottleIds)
                     }
                 }
@@ -52,7 +61,6 @@ struct IngredientView: View {
                 }
             }
             .navigationTitle("Cocktail Ingredients")
-//            .navigationBarItems(trailing: EditButton())
         }
     }
 }
