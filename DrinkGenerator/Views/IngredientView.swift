@@ -51,8 +51,7 @@ struct IngredientView: View {
                     List(bottles, selection: $selectedBottleIds) { bottle in
                         Text(bottle.name)
                     }
-                    .onTapGesture {
-                        //This adds all but the last item. Seems that selectedBottleIds doesn't update until *after* the tap occurs
+                    .onChange(of: selectedBottleIds) { value in
                         homeBar.add(bottles, from: selectedBottleIds)
                     }
                 }
