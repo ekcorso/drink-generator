@@ -16,4 +16,13 @@ class HomeBar: ObservableObject {
             bottleList.insert(item)
         }
     }
+    
+    func convertIdsToBottles(ids: Set<UUID>, bottles: [Bottle]) -> Set<Bottle> {
+        var returnBottles = Set<Bottle>()
+        let newItems = bottles.filter { ids.contains($0.id) }
+        for item in newItems {
+            returnBottles.insert(item)
+        }
+        return returnBottles
+    }
 }
