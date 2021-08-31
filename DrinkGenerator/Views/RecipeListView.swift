@@ -9,17 +9,16 @@ import SwiftUI
 
 struct RecipeListView: View {
     @State private var selection = UUID()
-    @State private var sampleHomeBar = HomeBar()
-    var homeBarBottles = ["Gin", "Dry Vermouth"]
+    @EnvironmentObject var homeBar: HomeBar
     
-    let drinks: [DrinkStub] = {
+    var urlString: String {
+        guard let firstBottle = homeBar.bottleList.first?.name else { return "Gin" }
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-        let urlSearchTerms = "Dry_Vermouth,Gin"
-        let urlString = urlBaseString + urlSearchTerms
-        let cocktailAPI = CocktailAPI()
-        let drinks: [DrinkStub] = cocktailAPI.decode(DrinkList.self, from: urlString).drinks
-        
-        return drinks.sorted()
+        let searchTerm = String(firstBottle)
+        return urlBaseString + searchTerm
+    }
+    
+    lazy var drinks: [DrinkStub] = { CocktailAPI().decode(DrinkList.self, from: urlString).drinks.sorted()
     }()
     
     var body: some View {
@@ -35,5 +34,6 @@ struct RecipeListView: View {
 struct CDBRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         RecipeListView()
+            .environmentObject(HomeBar())
     }
 }
