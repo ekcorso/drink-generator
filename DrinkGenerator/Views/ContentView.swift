@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var homebar: HomeBar
-
     var body: some View {
         NavigationView {
             Form {
@@ -42,5 +40,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(HomeBar())
     }
 }

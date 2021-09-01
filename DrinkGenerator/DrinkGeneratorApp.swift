@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct DrinkGeneratorApp: App {
+    @StateObject var homeBar = HomeBar()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(HomeBar())
         }
     }
 }

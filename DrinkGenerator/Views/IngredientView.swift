@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct IngredientView: View {
+    @EnvironmentObject var homeBar: HomeBar
+
     let bottles: [Bottle] = {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         let cocktailAPI = CocktailAPI()
@@ -22,7 +24,6 @@ struct IngredientView: View {
         return bottles.sorted()
     }()
     
-    @State private var homeBar = HomeBar()
     @State private var selectedBottleIds = Set<UUID>()
     
     var body: some View {
@@ -67,5 +68,6 @@ struct IngredientView: View {
 struct IngredientView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientView()
+            .environmentObject(HomeBar())
     }
 }
