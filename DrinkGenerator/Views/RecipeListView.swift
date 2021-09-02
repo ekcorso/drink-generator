@@ -10,24 +10,17 @@ import SwiftUI
 struct RecipeListView: View {
     @State private var selection = UUID()
     @EnvironmentObject var homeBar: HomeBar
-    
-    var urlString: String {
-        guard let firstBottle = homeBar.bottleList.first?.name else { return "Gin" }
-        let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-        let searchTerm = String(firstBottle)
-        return urlBaseString + searchTerm
-    }
-    
-    lazy var drinks: [DrinkStub] = { CocktailAPI().decode(DrinkList.self, from: urlString).drinks.sorted()
-    }()
-    
+
+     var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, homeBar: homeBar, recipeId: nil).decode(DrinkList.self).drinks.sorted()
+     }
+      
     var body: some View {
-            Section {
-                List(drinks, id: \.id) { drink in
-                    RecipeRow(recipe: drink)
-                }
+        Section {
+            List(drinks, id: \.id) { drink in
+                RecipeRow(recipe: drink)
             }
-            .navigationTitle("Tried & True Cocktails")
+        }
+        .navigationTitle("Tried & True Cocktails")
     }
 }
 
