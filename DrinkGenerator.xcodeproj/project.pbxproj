@@ -11,6 +11,7 @@
 		FC464B2526D32DF70031AEF7 /* ComboGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC464B2426D32DF70031AEF7 /* ComboGenerator.swift */; };
 		FC464B2726D333500031AEF7 /* ComboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC464B2626D333500031AEF7 /* ComboView.swift */; };
 		FC60341626D967B9003569D7 /* HomeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60341526D967B9003569D7 /* HomeBar.swift */; };
+		FC6E0DD426E1438F00740CCB /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6E0DD326E1438F00740CCB /* RequestType.swift */; };
 		FC8A78AB26C4A65D007B9B90 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8A78AA26C4A65D007B9B90 /* ImageLoader.swift */; };
 		FC8A78AD26C4AE2F007B9B90 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */; };
 		FC92E7B026AF9657007DAD10 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7AF26AF9657007DAD10 /* IngredientList.swift */; };
@@ -32,6 +33,7 @@
 		FC464B2426D32DF70031AEF7 /* ComboGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComboGenerator.swift; path = DrinkGenerator/Helpers/ComboGenerator.swift; sourceTree = SOURCE_ROOT; };
 		FC464B2626D333500031AEF7 /* ComboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboView.swift; sourceTree = "<group>"; };
 		FC60341526D967B9003569D7 /* HomeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBar.swift; sourceTree = "<group>"; };
+		FC6E0DD326E1438F00740CCB /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RequestType.swift; path = "DrinkGenerator/Data Model/RequestType.swift"; sourceTree = SOURCE_ROOT; };
 		FC8A78AA26C4A65D007B9B90 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		FC92E7AF26AF9657007DAD10 /* IngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientList.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				FC464B2426D32DF70031AEF7 /* ComboGenerator.swift */,
 				FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */,
+				FC6E0DD326E1438F00740CCB /* RequestType.swift */,
 				FC8A78AA26C4A65D007B9B90 /* ImageLoader.swift */,
 			);
 			path = Helpers;
@@ -90,8 +93,8 @@
 				A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */,
 				FCCAD98926BDFB46004575F7 /* RecipeListView.swift */,
 				FC964EC326C2FCAB008C0547 /* RecipeRow.swift */,
-				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
 				FCA90E2126C5C6AE004B6F11 /* RecipeDetailView.swift */,
+				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
 				FC464B2626D333500031AEF7 /* ComboView.swift */,
 			);
 			path = Views;
@@ -214,6 +217,7 @@
 				FCCAD98E26C0CF0C004575F7 /* DrinkList.swift in Sources */,
 				FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */,
 				FC964EC426C2FCAB008C0547 /* RecipeRow.swift in Sources */,
+				FC6E0DD426E1438F00740CCB /* RequestType.swift in Sources */,
 				FC8A78AB26C4A65D007B9B90 /* ImageLoader.swift in Sources */,
 				A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */,
 				FC92E7B426AF98C7007DAD10 /* Bottle.swift in Sources */,
