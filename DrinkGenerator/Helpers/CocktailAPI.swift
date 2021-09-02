@@ -31,7 +31,7 @@ struct CocktailAPI {
     }
     
     // T is a DrinkList, IngredientList, or RecipeList
-    func decode<T:Decodable>(_ type: T.Type, from urlString: String) -> T {
+    func decode<T:Decodable>(_ type: T.Type) -> T {
         guard let url = URL(string: urlString) else {
             fatalError("Failed to cast urlString as url.")
         }
@@ -46,13 +46,12 @@ struct CocktailAPI {
             fatalError("Failed to decode data.")
             
         }
-        
         return loaded
     }
     
     //DrinkStubList (aka RecipeListView's result)
     func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
-        guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.name else { return "Gin" }
+        guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.name else { return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin" }
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
         // TODO: Be sure to convert searchTerm to snakecase before trying to use it
         let searchTerm = String(firstBottle)
