@@ -63,12 +63,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC6E0DD526E188FC00740CCB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		FC8A78AE26C4B11F007B9B90 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				FC464B2426D32DF70031AEF7 /* ComboGenerator.swift */,
-				FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */,
-				FC6E0DD326E1438F00740CCB /* RequestType.swift */,
 				FC8A78AA26C4A65D007B9B90 /* ImageLoader.swift */,
 			);
 			path = Helpers;
@@ -82,6 +88,7 @@
 				FC92E7AF26AF9657007DAD10 /* IngredientList.swift */,
 				FCCAD98B26C0CAA6004575F7 /* Recipe.swift */,
 				FCCAD98D26C0CF0C004575F7 /* DrinkList.swift */,
+				FC6E0DD326E1438F00740CCB /* RequestType.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF28FC026A0B3F600930F0F /* DrinkGeneratorApp.swift */,
+				FC6E0DD526E188FC00740CCB /* Networking */,
 				FCCC9F2D26C1807100C7E043 /* Views */,
 				FCCC9F2C26C1806100C7E043 /* Data Model */,
 				FC8A78AE26C4B11F007B9B90 /* Helpers */,
