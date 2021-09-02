@@ -8,11 +8,11 @@
 import Foundation
 
 struct CocktailAPI {
-    var requestType: RequestType
-    var homeBar: HomeBar?
-    var recipeId: Int?
+    private var requestType: RequestType
+    private var homeBar: HomeBar?
+    private var recipeId: Int?
     
-    var urlString: String {
+    private var urlString: String {
         switch requestType {
         case .drinkStubList:
             return buildDrinkStubListUrl(with: homeBar)
@@ -50,7 +50,7 @@ struct CocktailAPI {
     }
     
     //DrinkStubList (aka RecipeListView's result)
-    func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
+    private func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
         guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.name else { return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin" }
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
         // TODO: Be sure to convert searchTerm to snakecase before trying to use it
@@ -59,7 +59,7 @@ struct CocktailAPI {
     }
     
     //RecipeDetail
-    func buildRecipeDetailUrl(recipeId: Int?) -> String {
+    private func buildRecipeDetailUrl(recipeId: Int?) -> String {
         // TODO: Remove hardcoded ID and handle nil case
         guard let recipeId = recipeId else {
             return "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12420"
