@@ -11,11 +11,8 @@ struct RecipeDetailView: View {
     let recipe: DrinkStub
 
     var detailedRecipe: Recipe {
-        let urlStringBase = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
-        let recipeIdString = String(recipe.id)
-        let urlString: String = urlStringBase + recipeIdString
-        let cocktailAPI = CocktailAPI()
-        let recipes: [Recipe] = cocktailAPI.decode(RecipeList.self, from: urlString).drinks
+        let cocktailAPI = CocktailAPI(requestType: .recipeDetail, homeBar: nil, recipeId: recipe.id)
+        let recipes: [Recipe] = cocktailAPI.decode(RecipeList.self).drinks
         
         return recipes[0]
     }
