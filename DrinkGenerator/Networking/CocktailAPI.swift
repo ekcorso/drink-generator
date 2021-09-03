@@ -71,4 +71,58 @@ struct CocktailAPI {
     
     //Ingredients
     //This one is a static string "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+    
+    func fetchDrinks() -> [DrinkStub] {
+        guard let url = URL(string: urlString) else {
+            fatalError("Failed to cast urlString as url.")
+        }
+        
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("Failed to load data from url.")
+        }
+        
+        let decoder = JSONDecoder()
+        
+        guard let loaded = try? decoder.decode(DrinkList.self, from: data) else {
+            fatalError("Failed to decode data.")
+            
+        }
+        return loaded.drinks.sorted()
+    }
+    
+    func fetchIngredients() -> [Ingredient] {
+        guard let url = URL(string: urlString) else {
+            fatalError("Failed to cast urlString as url.")
+        }
+        
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("Failed to load data from url.")
+        }
+        
+        let decoder = JSONDecoder()
+        
+        guard let loaded = try? decoder.decode(IngredientList.self, from: data) else {
+            fatalError("Failed to decode data.")
+            
+        }
+        return loaded.drinks
+    }
+    
+    func fetchRecipe() -> Recipe {
+        guard let url = URL(string: urlString) else {
+            fatalError("Failed to cast urlString as url.")
+        }
+        
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("Failed to load data from url.")
+        }
+        
+        let decoder = JSONDecoder()
+        
+        guard let loaded = try? decoder.decode(RecipeList.self, from: data) else {
+            fatalError("Failed to decode data.")
+            
+        }
+        return loaded.drinks[0]
+    }
 }
