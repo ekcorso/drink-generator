@@ -11,7 +11,7 @@ struct RecipeListView: View {
     @State private var selection = UUID()
     @EnvironmentObject var homeBar: HomeBar
 
-     var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, homeBar: homeBar, recipeId: nil).fetchDrinks()
+     var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, homeBar: homeBar).fetchDrinks()
      }
       
     var body: some View {

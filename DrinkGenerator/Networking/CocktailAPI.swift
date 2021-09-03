@@ -23,10 +23,17 @@ struct CocktailAPI {
         }
     }
     
-    // Should this be a convenience init?
-    init(requestType: RequestType, homeBar: HomeBar?, recipeId: Int?) {
+    init(requestType: RequestType) {
         self.requestType = requestType
+    }
+    
+    init(requestType: RequestType, homeBar: HomeBar) {
+        self.init(requestType: requestType)
         self.homeBar = homeBar
+    }
+    
+    init(requestType: RequestType, recipeId: Int) {
+        self.init(requestType: requestType)
         self.recipeId = recipeId
     }
     

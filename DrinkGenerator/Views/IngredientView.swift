@@ -11,7 +11,7 @@ struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
 
     let bottles: [Bottle] = {
-        let ingredients = CocktailAPI(requestType: .ingredientList, homeBar: nil, recipeId: nil).fetchIngredients()
+        let ingredients = CocktailAPI(requestType: .ingredientList).fetchIngredients()
         
         var bottles = [Bottle]()
         for ingredient in ingredients {

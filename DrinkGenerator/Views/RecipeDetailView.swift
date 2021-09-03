@@ -11,7 +11,7 @@ struct RecipeDetailView: View {
     let recipe: DrinkStub
 
     var detailedRecipe: Recipe {
-        return CocktailAPI(requestType: .recipeDetail, homeBar: nil, recipeId: recipe.id).fetchRecipe()
+        return CocktailAPI(requestType: .recipeDetail, recipeId: recipe.id).fetchRecipe()
     }
     
 //    let ingredients: [String]
