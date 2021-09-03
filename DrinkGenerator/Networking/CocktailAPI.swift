@@ -30,25 +30,6 @@ struct CocktailAPI {
         self.recipeId = recipeId
     }
     
-    // T is a DrinkList, IngredientList, or RecipeList
-    func decode<T:Decodable>(_ type: T.Type) -> T {
-        guard let url = URL(string: urlString) else {
-            fatalError("Failed to cast urlString as url.")
-        }
-        
-        guard let data = try? Data(contentsOf: url) else {
-            fatalError("Failed to load data from url.")
-        }
-        
-        let decoder = JSONDecoder()
-        
-        guard let loaded = try? decoder.decode(T.self, from: data) else {
-            fatalError("Failed to decode data.")
-            
-        }
-        return loaded
-    }
-    
     //DrinkStubList (aka RecipeListView's result)
     private func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
         guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.name else { return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin" }
