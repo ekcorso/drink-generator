@@ -19,7 +19,7 @@ struct CocktailAPI {
         case .recipeDetail:
             return buildRecipeDetailUrl(recipeId: recipeId)
         case .ingredientList:
-            return "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+            return "https://www.thecocktaildb.com/api/json/v2/9973533/list.php?i=list"
         }
     }
     
@@ -50,9 +50,9 @@ struct CocktailAPI {
     private func buildRecipeDetailUrl(recipeId: Int?) -> String {
         // TODO: Remove hardcoded ID and handle nil case
         guard let recipeId = recipeId else {
-            return "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12420"
+            return "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=12420"
         }
-        let urlStringBase = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
+        let urlStringBase = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i="
         let recipeIdString = String(recipeId)
         return urlStringBase + recipeIdString
     }
