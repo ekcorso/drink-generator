@@ -11,6 +11,9 @@ class Bottle: Identifiable, Hashable, ObservableObject {
     
     var name: String
     var id = UUID()
+    var snakeName: String {
+        return name.replacingOccurrences(of: " ", with: "_")
+    }
 
     //var category: String
     

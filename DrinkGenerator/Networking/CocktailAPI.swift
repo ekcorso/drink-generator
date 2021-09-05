@@ -39,9 +39,8 @@ struct CocktailAPI {
     
     //DrinkStubList (aka RecipeListView's result)
     private func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
-        guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.name else { return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin" }
+        guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.snakeName else { return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin" }
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-        // TODO: Be sure to convert searchTerm to snakecase before trying to use it
         let searchTerm = String(firstBottle)
         return urlBaseString + searchTerm
     }
