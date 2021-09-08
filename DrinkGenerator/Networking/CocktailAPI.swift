@@ -39,10 +39,28 @@ struct CocktailAPI {
     
     //DrinkStubList (aka RecipeListView's result)
     private func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
-        guard let homeBar = homeBar, let firstBottle = homeBar.bottleList.first?.snakeName else { return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin" }
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-        let searchTerm = String(firstBottle)
-        return urlBaseString + searchTerm
+        guard let homeBar = homeBar else {
+            // TODO: handle this
+            return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
+        }
+        
+        if homeBar.bottleList.isEmpty {
+            // TODO: handle this
+            return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
+        } else if homeBar.bottleList.count == 1 {
+            let firstBottle = homeBar.bottleList.first!.snakeName
+            let searchTerm = String(firstBottle)
+            return urlBaseString + searchTerm
+        } else {
+            let bottles: [Bottle] = Array(homeBar.bottleList.shuffled().prefix(3))
+            var searchTerms = [String]()
+            for bottle in bottles {
+                searchTerms.append(bottle.snakeName)
+            }
+            let combinedSearchTerms = searchTerms.joined(separator: ",")
+            return urlBaseString + combinedSearchTerms
+        }
     }
     
     //RecipeDetail
