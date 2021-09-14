@@ -21,7 +21,10 @@ struct ContentView: View {
                 
                 Section(header: Text("Ready to see some cocktail options?")) {
                     
-                    NavigationLink(destination: ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])) {
+//                    NavigationLink(destination: ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])) {
+//                            Text("Show me Mr. Potatohead-style recipe ideas")
+//                        }
+                    NavigationLink(destination: ComboView()) {
                             Text("Show me Mr. Potatohead-style recipe ideas")
                         }
                     

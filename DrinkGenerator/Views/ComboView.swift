@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ComboView: View {
-    var ingredients: [Bottle]
+    //var ingredients: [Bottle]
+    @EnvironmentObject var homeBar: HomeBar
+    var ingredients: [Bottle] {
+        Array(homeBar.bottleList)
+    }
     
     //takenBy is temporarily hardcoded. Still deciding if this should be decided by the user or not
     var takenBy: Int = 3
@@ -57,6 +61,8 @@ struct ComboView: View {
 
 struct ComboView_Previews: PreviewProvider {
     static var previews: some View {
-        ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])
+//        ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])
+        ComboView()
+            .environmentObject(HomeBar())
     }
 }

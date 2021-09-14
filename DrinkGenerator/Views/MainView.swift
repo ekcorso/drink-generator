@@ -18,10 +18,10 @@ struct MainView: View {
                 .tabItem {
                     Label("Recipes", systemImage: "list.bullet.rectangle")
                 }
-//            ComboView()
-//                .tabItem {
-//                    Label("Combos", systemImage: "bolt")
-//                }
+            ComboView()
+                .tabItem {
+                    Label("Combos", systemImage: "bolt")
+                }
         }
     }
 }

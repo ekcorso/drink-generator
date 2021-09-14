@@ -12,7 +12,8 @@ struct DrinkGeneratorApp: App {
     @StateObject var homeBar = HomeBar()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            MainView()
                 .environmentObject(HomeBar())
         }
     }
