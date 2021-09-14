@@ -12,6 +12,7 @@
 		FC464B2726D333500031AEF7 /* ComboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC464B2626D333500031AEF7 /* ComboView.swift */; };
 		FC60341626D967B9003569D7 /* HomeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60341526D967B9003569D7 /* HomeBar.swift */; };
 		FC6E0DD426E1438F00740CCB /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6E0DD326E1438F00740CCB /* RequestType.swift */; };
+		FC6E0DE026F11CE100740CCB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6E0DDF26F11CE100740CCB /* MainView.swift */; };
 		FC8A78AB26C4A65D007B9B90 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8A78AA26C4A65D007B9B90 /* ImageLoader.swift */; };
 		FC8A78AD26C4AE2F007B9B90 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */; };
 		FC92E7B026AF9657007DAD10 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92E7AF26AF9657007DAD10 /* IngredientList.swift */; };
@@ -34,6 +35,7 @@
 		FC464B2626D333500031AEF7 /* ComboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboView.swift; sourceTree = "<group>"; };
 		FC60341526D967B9003569D7 /* HomeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBar.swift; sourceTree = "<group>"; };
 		FC6E0DD326E1438F00740CCB /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RequestType.swift; path = "DrinkGenerator/Data Model/RequestType.swift"; sourceTree = SOURCE_ROOT; };
+		FC6E0DDF26F11CE100740CCB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FC8A78AA26C4A65D007B9B90 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		FC92E7AF26AF9657007DAD10 /* IngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientList.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				FCA90E2126C5C6AE004B6F11 /* RecipeDetailView.swift */,
 				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
 				FC464B2626D333500031AEF7 /* ComboView.swift */,
+				FC6E0DDF26F11CE100740CCB /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8A78AD26C4AE2F007B9B90 /* ImageView.swift in Sources */,
+				FC6E0DE026F11CE100740CCB /* MainView.swift in Sources */,
 				FC92E7B226AF96A4007DAD10 /* CocktailAPI.swift in Sources */,
 				FC464B2726D333500031AEF7 /* ComboView.swift in Sources */,
 				FC464B2526D32DF70031AEF7 /* ComboGenerator.swift in Sources */,
