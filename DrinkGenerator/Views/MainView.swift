@@ -12,6 +12,10 @@ struct MainView: View {
         TabView {
             IngredientView()
                 .tabItem {
+                    Label("Ingredients", systemImage: "list")
+                }
+            HomeBarView()
+                .tabItem {
                     Label("Home Bar", systemImage: "house")
                 }
             RecipeListView()
