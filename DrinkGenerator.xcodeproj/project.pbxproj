@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */; };
+		FC2FE91126F1316200027342 /* HomeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FE91026F1316200027342 /* HomeBarView.swift */; };
 		FC464B2526D32DF70031AEF7 /* ComboGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC464B2426D32DF70031AEF7 /* ComboGenerator.swift */; };
 		FC464B2726D333500031AEF7 /* ComboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC464B2626D333500031AEF7 /* ComboView.swift */; };
 		FC60341626D967B9003569D7 /* HomeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60341526D967B9003569D7 /* HomeBar.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
+		FC2FE91026F1316200027342 /* HomeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBarView.swift; sourceTree = "<group>"; };
 		FC464B2426D32DF70031AEF7 /* ComboGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComboGenerator.swift; path = DrinkGenerator/Helpers/ComboGenerator.swift; sourceTree = SOURCE_ROOT; };
 		FC464B2626D333500031AEF7 /* ComboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboView.swift; sourceTree = "<group>"; };
 		FC60341526D967B9003569D7 /* HomeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBar.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				FCA90E2126C5C6AE004B6F11 /* RecipeDetailView.swift */,
 				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
 				FC464B2626D333500031AEF7 /* ComboView.swift */,
+				FC2FE91026F1316200027342 /* HomeBarView.swift */,
 				FC6E0DDF26F11CE100740CCB /* MainView.swift */,
 			);
 			path = Views;
@@ -229,6 +232,7 @@
 				FCCAD98E26C0CF0C004575F7 /* DrinkList.swift in Sources */,
 				FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */,
 				FC964EC426C2FCAB008C0547 /* RecipeRow.swift in Sources */,
+				FC2FE91126F1316200027342 /* HomeBarView.swift in Sources */,
 				FC6E0DD426E1438F00740CCB /* RequestType.swift in Sources */,
 				FC8A78AB26C4A65D007B9B90 /* ImageLoader.swift in Sources */,
 				A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */,
