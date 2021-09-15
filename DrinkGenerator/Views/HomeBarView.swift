@@ -15,18 +15,17 @@ struct HomeBarView: View {
     
     var body: some View {
         NavigationView {
-//            Section {
-//                Text("Bottles in your home bar:")
-//            }
-            Section {
+            VStack {
                 List {
-                    ForEach(ingredients) { bottle in
-                        Text(bottle.name)
+                    Section(header: Text("Bottles in your home bar")) {
+                        ForEach(ingredients) { bottle in
+                            Text(bottle.name)
+                        }
                     }
                 }
+                .navigationTitle("Home Bar")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationTitle("Home Bar")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
