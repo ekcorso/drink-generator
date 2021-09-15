@@ -12,7 +12,7 @@ struct MainView: View {
         TabView {
             IngredientView()
                 .tabItem {
-                    Label("Ingredients", systemImage: "list")
+                    Label("Ingredients", systemImage: "pencil.circle")
                 }
             HomeBarView()
                 .tabItem {
