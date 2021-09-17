@@ -25,6 +25,11 @@ struct HomeBarView: View {
         NavigationView {
             if homeBarIsEmpty {
                 Text("Home bar is empty")
+                    .navigationTitle("Home Bar")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                            NavigationLink("Edit", destination: IngredientView())
+                    }
             } else {
             VStack {
                 List {
@@ -37,6 +42,10 @@ struct HomeBarView: View {
                 .listStyle(GroupedListStyle())
                 .navigationTitle("Home Bar")
                 .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                        NavigationLink("Edit", destination: IngredientView())
+                }
+                
                 Text("Feeling adventurous? To get a randomly generated cocktail idea from your available ingredients, tap \"Combos\"! Or tap \"Recipes\" to get tried and true recipes you can make instead.")
                 Divider()
             }
