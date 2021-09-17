@@ -28,27 +28,27 @@ struct HomeBarView: View {
                     .navigationTitle("Home Bar")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
-                            NavigationLink("Edit", destination: IngredientView())
+                        NavigationLink("Edit", destination: IngredientView())
                     }
             } else {
-            VStack {
-                List {
-                    Section(header: Text("Bottles in your home bar: ")) {
-                        ForEach(ingredients) { bottle in
-                            Text(bottle.name)
+                VStack {
+                    List {
+                        Section(header: Text("Bottles in your home bar: ")) {
+                            ForEach(ingredients) { bottle in
+                                Text(bottle.name)
+                            }
                         }
                     }
-                }
-                .listStyle(GroupedListStyle())
-                .navigationTitle("Home Bar")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
+                    .listStyle(GroupedListStyle())
+                    .navigationTitle("Home Bar")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
                         NavigationLink("Edit", destination: IngredientView())
+                    }
+                    
+                    Text("Feeling adventurous? To get a randomly generated cocktail idea from your available ingredients, tap \"Combos\"! Or tap \"Recipes\" to get tried and true recipes you can make instead.")
+                    Divider()
                 }
-                
-                Text("Feeling adventurous? To get a randomly generated cocktail idea from your available ingredients, tap \"Combos\"! Or tap \"Recipes\" to get tried and true recipes you can make instead.")
-                Divider()
-            }
             }
         }
     }
