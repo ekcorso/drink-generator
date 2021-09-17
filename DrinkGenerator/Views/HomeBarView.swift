@@ -12,9 +12,20 @@ struct HomeBarView: View {
     var ingredients: [Bottle] {
         Array(homeBar.bottleList)
     }
+    //var homeBarIsEmpty: Bool = false
+    var homeBarIsEmpty: Bool {
+        if homeBar.bottleList.count == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
     
     var body: some View {
         NavigationView {
+            if homeBarIsEmpty {
+                Text("Home bar is empty")
+            } else {
             VStack {
                 List {
                     Section(header: Text("Bottles in your home bar: ")) {
@@ -28,6 +39,7 @@ struct HomeBarView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 Text("Feeling adventurous? To get a randomly generated cocktail idea from your available ingredients, tap \"Combos\"! Or tap \"Recipes\" to get tried and true recipes you can make instead.")
                 Divider()
+            }
             }
         }
     }
