@@ -20,6 +20,7 @@ struct ComboView: View {
     }
         
     var body: some View {
+        if ingredients.isEmpty == false {
         VStack(alignment: .center) {
             Section {
                 Text("Try this out:")
@@ -28,9 +29,9 @@ struct ComboView: View {
             }
             Divider()
             Section {
-                ForEach(randomCombo) { item in
-                    Text(item.name)
-                }
+                    ForEach(randomCombo) { item in
+                        Text(item.name)
+                    }
             }
             Divider()
             Section {
@@ -55,6 +56,9 @@ struct ComboView: View {
 ////                }
 //            }
 //        }
+        } else {
+            Text("If you would like to generate combinations, please first select some bottles.")
+        }
     }
 }
 
