@@ -10,10 +10,6 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            IngredientView()
-                .tabItem {
-                    Label("Ingredients", systemImage: "pencil.circle")
-                }
             HomeBarView()
                 .tabItem {
                     Label("Home Bar", systemImage: "house")
