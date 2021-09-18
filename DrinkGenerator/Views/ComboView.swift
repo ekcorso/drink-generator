@@ -18,44 +18,44 @@ struct ComboView: View {
     
     var randomCombo: [Bottle] { ComboGenerator().generateAllIngredientCombos(ingredients: ingredients, takenBy: takenBy).randomElement()!
     }
-        
+    
     var body: some View {
         if ingredients.isEmpty == false {
-        VStack(alignment: .center) {
-            Section {
-                Text("Try this out:")
-                    .bold()
-                    .font(.title2)
-            }
-            Divider()
-            Section {
+            VStack(alignment: .center) {
+                Section {
+                    Text("Try this out:")
+                        .bold()
+                        .font(.title2)
+                }
+                Divider()
+                Section {
                     ForEach(randomCombo) { item in
                         Text(item.name)
                     }
-            }
-            Divider()
-            Section {
-                Button("Generate new combo") {
-                    //Needs to shuffle the allCombos array
                 }
-                .padding()
-                .background(Color(.blue))
-                .foregroundColor(.white)
-                .clipShape(Capsule())
+                Divider()
+                Section {
+                    Button("Generate new combo") {
+                        //Needs to shuffle the allCombos array
+                    }
+                    .padding()
+                    .background(Color(.blue))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                }
             }
-        }
-//        ForEach(Array(zip(allCombos.indicies, allCombos
-//        )), id: \.0) { index, combo in
-//            Text("\(combo.description)")
-//        }
-//        Button("Print Combos") {
-//            for combo in allCombos.enumerated() {
-//                print(combo.element)
-////                for item in combo {
-////                    print(item.name)
-////                }
-//            }
-//        }
+            //        ForEach(Array(zip(allCombos.indicies, allCombos
+            //        )), id: \.0) { index, combo in
+            //            Text("\(combo.description)")
+            //        }
+            //        Button("Print Combos") {
+            //            for combo in allCombos.enumerated() {
+            //                print(combo.element)
+            ////                for item in combo {
+            ////                    print(item.name)
+            ////                }
+            //            }
+            //        }
         } else {
             Text("If you would like to generate combinations, please first select some bottles.")
         }
@@ -64,7 +64,7 @@ struct ComboView: View {
 
 struct ComboView_Previews: PreviewProvider {
     static var previews: some View {
-//        ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])
+        //        ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])
         ComboView()
             .environmentObject(HomeBar())
     }
