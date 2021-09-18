@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ComboView: View {
-    //var ingredients: [Bottle]
     @EnvironmentObject var homeBar: HomeBar
     var ingredients: [Bottle] {
         Array(homeBar.bottleList)
