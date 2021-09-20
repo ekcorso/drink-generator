@@ -15,12 +15,19 @@ struct RecipeListView: View {
      }
       
     var body: some View {
-        Section {
-            List(drinks, id: \.id) { drink in
-                RecipeRow(recipe: drink)
+        NavigationView {
+            Section {
+                List(drinks, id: \.id) { drink in
+                    RecipeRow(recipe: drink)
+                }
+            }
+            .navigationTitle("Tried & True Cocktail Recipes")
+            .toolbar {
+                NavigationLink(destination: RecipeSettingsView()) {
+                    Text("Settings")
+                }
             }
         }
-        .navigationTitle("Tried & True Cocktails")
     }
 }
 
