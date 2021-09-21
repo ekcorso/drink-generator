@@ -7,8 +7,6 @@
 
 import Foundation
 
-//This is a test comment to see how git revert works
-
 struct CocktailAPI {
     private var requestType: RequestType
     private var homeBar: HomeBar?
