@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeBarView: View {
     @EnvironmentObject var homeBar: HomeBar
+    @State private var showingSheet = false
     var ingredients: [Bottle] {
         Array(homeBar.bottleList)
     }
@@ -28,7 +29,12 @@ struct HomeBarView: View {
                     Text("Your home bar is empty.")
                     Text("Let's fix that...")
                     Divider()
-                    NavigationLink("Select some bottles", destination: IngredientView())
+                    Button("Select some ingredients") {
+                        showingSheet.toggle()
+                    }
+                        .sheet(isPresented: $showingSheet) {
+                            IngredientView()
+                        }
                         .padding(10)
                         .background(Color(.systemOrange))
                         .foregroundColor(Color(.systemGray6))

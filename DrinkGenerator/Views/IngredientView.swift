@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
+//    @Environment(\.dismiss) var dismiss
 
     let bottles: [Bottle] = {
         let ingredients = CocktailAPI(requestType: .ingredientList).fetchIngredients()
@@ -27,25 +28,25 @@ struct IngredientView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Section {
-                    Text(selectedBottleIds.count == 0 ? "Select up to 10" : "\(selectedBottleIds.count) items selected")
-                }
-                Section {
-                    Button("Print selected") {
-                        print("Homebar bottles:")
-                        for bottle in homeBar.bottleList {
-                            print(bottle.name)
-                        }
-                        print("Selector bottles:")
-                        for bottle in bottles {
-                            for id in selectedBottleIds {
-                                if bottle.id == id {
-                                    print(bottle.name)
-                                }
-                            }
-                        }
-                    }
-                }
+//                Section {
+//                    Text(selectedBottleIds.count == 0 ? "Select up to 10" : "\(selectedBottleIds.count) items selected")
+//                }
+//                Section {
+//                    Button("Print selected") {
+//                        print("Homebar bottles:")
+//                        for bottle in homeBar.bottleList {
+//                            print(bottle.name)
+//                        }
+//                        print("Selector bottles:")
+//                        for bottle in bottles {
+//                            for id in selectedBottleIds {
+//                                if bottle.id == id {
+//                                    print(bottle.name)
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
                 Section {
                     List(bottles, selection: $selectedBottleIds) { bottle in
                         Text(bottle.name)
@@ -59,6 +60,7 @@ struct IngredientView: View {
                 }
             }
             .navigationTitle("Cocktail Ingredients")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
