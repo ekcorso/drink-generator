@@ -24,7 +24,16 @@ struct HomeBarView: View {
     var body: some View {
         NavigationView {
             if homeBarIsEmpty {
-                Text("Home bar is empty")
+                VStack {
+                    Text("Your home bar is empty.")
+                    Text("Let's fix that...")
+                    Divider()
+                    NavigationLink("Select some bottles", destination: IngredientView())
+                        .padding(10)
+                        .background(Color(.systemOrange))
+                        .foregroundColor(Color(.systemGray6))
+                        .clipShape(Capsule())
+                }
                     .navigationTitle("Home Bar")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
