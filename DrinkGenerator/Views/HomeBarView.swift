@@ -36,15 +36,15 @@ struct HomeBarView: View {
                     .background(Color(.systemOrange))
                     .foregroundColor(Color(.systemGray6))
                     .clipShape(Capsule())
-                        .sheet(isPresented: $showingSheet) {
-                            IngredientView()
-                        }
-                }
-                    .navigationTitle("Home Bar")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        NavigationLink("Edit", destination: IngredientView())
+                    .sheet(isPresented: $showingSheet) {
+                        IngredientView()
                     }
+                }
+                .navigationTitle("Home Bar")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    NavigationLink("Edit", destination: IngredientView())
+                }
             } else {
                 VStack {
                     List {
