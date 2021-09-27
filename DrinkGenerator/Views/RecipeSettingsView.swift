@@ -19,22 +19,26 @@ struct RecipeSettingsView: View {
 
     
     var body: some View {
-        Form {
-            Section(header: Text("Which ingredient would you like to see recipes containing?")) {
-                Picker("Bottles", selection: $selectedBottle) {
-                    ForEach(bottles, id: \.self) {
-                        Text($0.name)
+        NavigationView {
+            Form {
+                Section(header: Text("Which ingredient would you like to see recipes containing?")) {
+                    Picker("Bottles", selection: $selectedBottle) {
+                        ForEach(bottles, id: \.self) {
+                            Text($0.name)
+                        }
                     }
                 }
-            }
-            Section(header: Text("Add bottles to your home bar")) {
-                NavigationLink(destination: IngredientView()) {
-                    Text("View your home bar")
+                Section(header: Text("Add bottles to your home bar")) {
+                    NavigationLink(destination: IngredientView()) {
+                        Text("View your home bar")
+                    }
+                }
+                Section(header: Text("Show me recipes from a random ingredient")) {
+                    Toggle("Random", isOn: $wantsRandomRecipes)
                 }
             }
-            Section(header: Text("Show me recipes from a random ingredient")) {
-                Toggle("Random", isOn: $wantsRandomRecipes)
-            }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

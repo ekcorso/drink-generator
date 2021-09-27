@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipeListView: View {
     @State private var selection = UUID()
     @EnvironmentObject var homeBar: HomeBar
+    @State private var showingSettingsSheet = false
 
      var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, homeBar: homeBar).fetchDrinks()
      }
@@ -23,8 +24,13 @@ struct RecipeListView: View {
             }
             .navigationTitle("Tried & True Cocktail Recipes")
             .toolbar {
-                NavigationLink(destination: RecipeSettingsView()) {
-                    Text("Settings")
+                ToolbarItem {
+                    Button("Settings") {
+                        showingSettingsSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingSettingsSheet) {
+                        RecipeSettingsView()
+                    }
                 }
             }
         }
