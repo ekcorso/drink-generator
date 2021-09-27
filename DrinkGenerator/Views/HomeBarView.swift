@@ -32,13 +32,13 @@ struct HomeBarView: View {
                     Button("Select some ingredients") {
                         showingSheet.toggle()
                     }
+                    .padding(10)
+                    .background(Color(.systemOrange))
+                    .foregroundColor(Color(.systemGray6))
+                    .clipShape(Capsule())
                         .sheet(isPresented: $showingSheet) {
                             IngredientView()
                         }
-                        .padding(10)
-                        .background(Color(.systemOrange))
-                        .foregroundColor(Color(.systemGray6))
-                        .clipShape(Capsule())
                 }
                     .navigationTitle("Home Bar")
                     .navigationBarTitleDisplayMode(.inline)
