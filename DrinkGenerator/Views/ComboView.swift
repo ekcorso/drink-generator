@@ -20,7 +20,7 @@ struct ComboView: View {
     }
     
     var body: some View {
-        if ingredients.isEmpty == false {
+        if ingredients.count > 3 {
             VStack(alignment: .center) {
                 Section {
                     Text("Try this out:")
