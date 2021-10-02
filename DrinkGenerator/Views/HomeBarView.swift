@@ -29,16 +29,11 @@ struct HomeBarView: View {
                     Text("Your home bar is empty.")
                     Text("Let's fix that...")
                     Divider()
-                    Button("Select some ingredients") {
-                        showingSheet.toggle()
-                    }
+                        NavigationLink("Select some ingredientsss", destination: IngredientView())
                     .padding(10)
                     .background(Color(.systemOrange))
                     .foregroundColor(Color(.systemGray6))
                     .clipShape(Capsule())
-                    .sheet(isPresented: $showingSheet) {
-                        IngredientView()
-                    }
                 }
                 .navigationTitle("Home Bar")
                 .navigationBarTitleDisplayMode(.inline)
