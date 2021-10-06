@@ -13,7 +13,7 @@ struct HomeBarView: View {
     var ingredients: [Bottle] {
         Array(homeBar.bottleList)
     }
-    //var homeBarIsEmpty: Bool = false
+
     var homeBarIsEmpty: Bool {
         if homeBar.bottleList.count == 0 {
             return true
@@ -29,7 +29,7 @@ struct HomeBarView: View {
                     Text("Your home bar is empty.")
                     Text("Let's fix that...")
                     Divider()
-                        NavigationLink("Select some ingredientsss", destination: IngredientView())
+                        NavigationLink("Select some ingredients", destination: IngredientView())
                     .padding(10)
                     .background(Color(.systemOrange))
                     .foregroundColor(Color(.systemGray6))
