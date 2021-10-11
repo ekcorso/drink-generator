@@ -14,22 +14,53 @@ struct RecipeListView: View {
 
      var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, homeBar: homeBar).fetchDrinks()
      }
-      
+    
+    var drinksIsEmpty: Bool {
+        if drinks.count == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            Section {
-                List(drinks, id: \.id) { drink in
-                    RecipeRow(recipe: drink)
+            if drinksIsEmpty {
+                VStack {
+                    Text("""
+                        That search didn't return any recipes 🤔
+                        
+                        To fix that, tap settings to update your home bar ingredients or search selections.
+                        """)
+                        .padding(.leading, 30)
+                        .padding(.trailing, 30)
                 }
-            }
-            .navigationTitle("Tried & True Cocktail Recipes")
-            .toolbar {
-                ToolbarItem {
-                    Button("Settings") {
-                        showingSettingsSheet.toggle()
+                .navigationTitle("Tried & True Cocktail Recipes")
+                .toolbar {
+                    ToolbarItem {
+                        Button("Settings") {
+                            showingSettingsSheet.toggle()
+                        }
+                        .sheet(isPresented: $showingSettingsSheet) {
+                            RecipeSettingsView()
+                        }
                     }
-                    .sheet(isPresented: $showingSettingsSheet) {
-                        RecipeSettingsView()
+                }
+            } else {
+                Section {
+                    List(drinks, id: \.id) { drink in
+                        RecipeRow(recipe: drink)
+                    }
+                }
+                .navigationTitle("Tried & True Cocktail Recipes")
+                .toolbar {
+                    ToolbarItem {
+                        Button("Settings") {
+                            showingSettingsSheet.toggle()
+                        }
+                        .sheet(isPresented: $showingSettingsSheet) {
+                            RecipeSettingsView()
+                        }
                     }
                 }
             }

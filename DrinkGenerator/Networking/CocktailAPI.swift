@@ -90,6 +90,7 @@ struct CocktailAPI {
         
         guard let loaded = try? decoder.decode(DrinkList.self, from: data) else {
             // This is where searches for bottle combos that don't have a result need to be handled
+            return [DrinkStub]()
             fatalError("Failed to decode data.")
             
         }
