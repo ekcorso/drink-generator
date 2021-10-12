@@ -14,4 +14,10 @@ class HomeBar: ObservableObject {
         let currentBottles = bottles.filter { selections.contains($0.id) }
         self.bottleList = Set(currentBottles)
     }
+    
+    func delete(_ offsets: IndexSet, from bottles: [Bottle]) {
+        var editedBottleList = bottles
+        editedBottleList.remove(atOffsets: offsets)
+        self.bottleList = Set(editedBottleList)
+    }
 }

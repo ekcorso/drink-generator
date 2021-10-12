@@ -37,9 +37,6 @@ struct HomeBarView: View {
                 }
                 .navigationTitle("Home Bar")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    NavigationLink("Edit", destination: IngredientView())
-                }
             } else {
                 VStack {
                     List {
@@ -47,24 +44,43 @@ struct HomeBarView: View {
                             ForEach(ingredients) { bottle in
                                 Text(bottle.name)
                             }
+                            .onDelete(perform: { indexSet in
+                                homeBar.delete(indexSet, from: ingredients)
+                            })
                         }
                     }
                     .listStyle(GroupedListStyle())
-                    .navigationTitle("Home Bar")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        NavigationLink("Edit", destination: IngredientView())
+                    NavigationLink("Add more bottles", destination: IngredientView())
+                    .padding(10)
+                    .background(Color(.systemOrange))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                            
+                    Button("Print List") {
+                        for bottle in homeBar.bottleList {
+                            print(bottle.name)
+                        }
                     }
-                    
+                    .padding(10)
+                    .background(Color(.systemPink))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    Divider()
                     Text("Feeling adventurous? To get a randomly generated cocktail idea from your available ingredients, tap \"Combos\"! Or tap \"Recipes\" to get tried and true recipes you can make instead.")
                     Divider()
                 }
+                .toolbar {
+                    EditButton()
+                }
+                .navigationTitle("Home Bar")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
 }
 
 struct HomeBarView_Previews: PreviewProvider {
+
     static var previews: some View {
         HomeBarView()
             .environmentObject(HomeBar())
