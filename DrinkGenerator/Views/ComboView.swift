@@ -21,28 +21,32 @@ struct ComboView: View {
     
     var body: some View {
         if ingredients.count > 3 {
-            VStack(alignment: .center) {
-                Section {
-                    Text("Try this out:")
-                        .bold()
-                        .font(.title2)
-                }
-                Divider()
-                Section {
-                    ForEach(randomCombo) { item in
-                        Text(item.name)
+            NavigationView {
+                VStack(alignment: .center) {
+                    Section {
+                        Text("Try this out:")
+                            .bold()
+                            .font(.title2)
+                    }
+                    Divider()
+                    Section {
+                        ForEach(randomCombo) { item in
+                            Text(item.name)
+                        }
+                    }
+                    Divider()
+                    Section {
+                        Button("Generate new combo") {
+                            //Needs to shuffle the allCombos array
+                        }
+                        .padding()
+                        .background(Color(.blue))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
                     }
                 }
-                Divider()
-                Section {
-                    Button("Generate new combo") {
-                        //Needs to shuffle the allCombos array
-                    }
-                    .padding()
-                    .background(Color(.blue))
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                }
+                .navigationTitle("Combos")
+                .navigationBarTitleDisplayMode(.inline)
             }
             //        ForEach(Array(zip(allCombos.indicies, allCombos
             //        )), id: \.0) { index, combo in
@@ -57,7 +61,11 @@ struct ComboView: View {
             //            }
             //        }
         } else {
-            Text("If you would like to generate combinations, please first select some bottles.")
+            NavigationView {
+                Text("If you would like to generate combinations, please first select some bottles.")
+                    .navigationTitle("Combos")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
     }
 }

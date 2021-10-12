@@ -35,7 +35,8 @@ struct RecipeListView: View {
                         .padding(.leading, 30)
                         .padding(.trailing, 30)
                 }
-                .navigationTitle("Tried & True Cocktail Recipes")
+                .navigationTitle("Recipes")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem {
                         Button("Settings") {
@@ -52,7 +53,8 @@ struct RecipeListView: View {
                         RecipeRow(recipe: drink)
                     }
                 }
-                .navigationTitle("Tried & True Cocktail Recipes")
+                .navigationTitle("Recipes")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem {
                         Button("Settings") {
