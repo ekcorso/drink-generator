@@ -20,4 +20,11 @@ class HomeBar: ObservableObject {
         editedBottleList.remove(atOffsets: offsets)
         self.bottleList = Set(editedBottleList)
     }
+    
+    func add(_ selections: Set<UUID>, from bottles: [Bottle]) {
+        let bottlesToAdd = bottles.filter { selections.contains($0.id) }
+        for bottle in bottlesToAdd {
+            self.bottleList.insert(bottle)
+        }
+    }
 }

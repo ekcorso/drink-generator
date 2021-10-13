@@ -52,7 +52,10 @@ struct IngredientView: View {
                         Text(bottle.name)
                     }
                     .onChange(of: selectedBottleIds) { value in
-                        homeBar.update(selectedBottleIds, from: bottles)
+                        homeBar.add(selectedBottleIds, from: bottles)
+//                        for bottle in homeBar.bottleList {
+//                            print(bottle.name)
+//                        }
                     }
                 }
                 .toolbar {
