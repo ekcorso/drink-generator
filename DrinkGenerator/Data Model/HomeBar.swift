@@ -22,9 +22,12 @@ class HomeBar: ObservableObject {
     }
     
     func add(_ selections: Set<UUID>, from bottles: [Bottle]) {
+        //user should not have to provide bottles to this nor the other methods in this class
         let bottlesToAdd = bottles.filter { selections.contains($0.id) }
         for bottle in bottlesToAdd {
+            if self.bottleList.contains(bottle) == false {
             self.bottleList.insert(bottle)
+            }
         }
     }
 }
