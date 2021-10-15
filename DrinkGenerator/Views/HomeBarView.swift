@@ -13,7 +13,7 @@ struct HomeBarView: View {
     var ingredients: [Bottle] {
         Array(homeBar.bottleList)
     }
-
+    
     var homeBarIsEmpty: Bool {
         if homeBar.bottleList.count == 0 {
             return true
@@ -29,11 +29,11 @@ struct HomeBarView: View {
                     Text("Your home bar is empty.")
                     Text("Let's fix that...")
                     Divider()
-                        NavigationLink("Select some ingredients", destination: IngredientView())
-                    .padding(10)
-                    .background(Color(.systemOrange))
-                    .foregroundColor(Color(.systemGray6))
-                    .clipShape(Capsule())
+                    NavigationLink("Select some ingredients", destination: IngredientView())
+                        .padding(10)
+                        .background(Color(.systemOrange))
+                        .foregroundColor(Color(.systemGray6))
+                        .clipShape(Capsule())
                 }
                 .navigationTitle("Home Bar")
                 .navigationBarTitleDisplayMode(.inline)
@@ -51,11 +51,11 @@ struct HomeBarView: View {
                     }
                     .listStyle(GroupedListStyle())
                     NavigationLink("Add more bottles", destination: IngredientView())
-                    .padding(10)
-                    .background(Color(.systemOrange))
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                            
+                        .padding(10)
+                        .background(Color(.systemOrange))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                    
                     Button("Print List") {
                         for bottle in homeBar.bottleList {
                             print(bottle.name)
@@ -80,7 +80,7 @@ struct HomeBarView: View {
 }
 
 struct HomeBarView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         HomeBarView()
             .environmentObject(HomeBar())
