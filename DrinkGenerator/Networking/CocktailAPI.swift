@@ -12,6 +12,10 @@ struct CocktailAPI {
     private var homeBar: HomeBar?
     private var recipeId: Int?
     
+    static var ingredients: [Bottle] {
+        return CocktailAPI(requestType: .ingredientList).fetchIngredients()
+    }
+    
     private var urlString: String {
         switch requestType {
         case .drinkStubList:
@@ -97,7 +101,7 @@ struct CocktailAPI {
         return loaded.drinks.sorted()
     }
     
-    func fetchIngredients() -> [Ingredient] {
+    func fetchIngredients() -> [Bottle] {
         guard let url = URL(string: urlString) else {
             fatalError("Failed to cast urlString as url.")
         }
@@ -112,7 +116,7 @@ struct CocktailAPI {
             fatalError("Failed to decode data.")
             
         }
-        return loaded.drinks
+        return convertIngredientsToBottles(ingredients: loaded.drinks)
     }
     
     func fetchRecipe() -> Recipe {
@@ -131,5 +135,15 @@ struct CocktailAPI {
             
         }
         return loaded.drinks[0]
+    }
+    
+    private func convertIngredientsToBottles(ingredients: [Ingredient]) -> [Bottle] {        
+        var bottles = [Bottle]()
+        for ingredient in ingredients {
+            let bottleName = ingredient.strIngredient1
+            bottles.append(Bottle(name: bottleName.capitalized))
+        }
+        
+        return bottles.sorted()
     }
 }

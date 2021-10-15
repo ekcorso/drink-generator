@@ -10,18 +10,8 @@ import SwiftUI
 struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
 //    @Environment(\.dismiss) var dismiss
-
-    let bottles: [Bottle] = {
-        let ingredients = CocktailAPI(requestType: .ingredientList).fetchIngredients()
-        
-        var bottles = [Bottle]()
-        for ingredient in ingredients {
-            let bottleName = ingredient.strIngredient1
-            bottles.append(Bottle(name: bottleName.capitalized))
-        }
-        
-        return bottles.sorted()
-    }()
+    
+    let bottles = CocktailAPI.ingredients
     
     @State private var selectedBottleIds = Set<UUID>()
     
@@ -52,10 +42,7 @@ struct IngredientView: View {
                         Text(bottle.name)
                     }
                     .onChange(of: selectedBottleIds) { value in
-                        homeBar.add(selectedBottleIds, from: bottles)
-//                        for bottle in homeBar.bottleList {
-//                            print(bottle.name)
-//                        }
+                        homeBar.add(value, from: bottles)
                     }
                 }
                 .toolbar {
