@@ -17,19 +17,18 @@ class Bottle: Identifiable, Hashable, ObservableObject {
 
     //var category: String
     
-    static let example1 = Bottle(name: "Whiskey", id: UUID())
-    static let example2 = Bottle(name: "Gin", id: UUID())
-    static let example3 = Bottle(name: "Sweet_Vermouth", id: UUID())
-    static let example4 = Bottle(name: "Campari", id: UUID())
+    static let example1 = Bottle(name: "Whiskey")
+    static let example2 = Bottle(name: "Gin")
+    static let example3 = Bottle(name: "Sweet_Vermouth")
+    static let example4 = Bottle(name: "Campari")
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
+        //hasher.combine(name)
         hasher.combine(id)
     }
     
-    init(name: String, id: UUID ) {
+    init(name: String) {
         self.name = name
-        self.id = id
     }
 }
 
