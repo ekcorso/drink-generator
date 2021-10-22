@@ -37,6 +37,9 @@ struct HomeBarView: View {
                 }
                 .navigationTitle("Home Bar")
                 .navigationBarTitleDisplayMode(.inline)
+                .onAppear {
+                    print("homeBar bottleslist IDs in HomeBarView: \(homeBar.bottleList.map { $0.id })")
+                }
             } else {
                 VStack {
                     List {
@@ -48,6 +51,9 @@ struct HomeBarView: View {
                                 homeBar.delete(indexSet, from: ingredients)
                             })
                         }
+                    }
+                    .onAppear {
+                        print("homeBar bottleslist IDs in HomeBarView: \(homeBar.bottleList.map { $0.id })")
                     }
                     .listStyle(GroupedListStyle())
                     NavigationLink("Add more bottles", destination: IngredientView())

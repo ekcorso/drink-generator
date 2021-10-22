@@ -34,7 +34,7 @@ class Bottle: Identifiable, Hashable, ObservableObject {
 
 extension Bottle: Comparable, Equatable {
     static func < (lhs: Bottle, rhs: Bottle) -> Bool {
-        lhs.name < rhs.name
+        lhs.id < rhs.id
     }
     
     static func == (lhs: Bottle, rhs: Bottle) -> Bool {
