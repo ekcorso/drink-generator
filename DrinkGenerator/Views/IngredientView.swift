@@ -41,9 +41,6 @@ struct IngredientView: View {
                     List(bottles, selection: $selectedBottleIds) { bottle in
                         Text(bottle.name)
                     }
-                    .onChange(of: selectedBottleIds) { value in
-                        homeBar.add(value, from: bottles)
-                    }
                 }
                 .toolbar {
                     EditButton()
@@ -51,6 +48,9 @@ struct IngredientView: View {
             }
             .navigationTitle("Cocktail Ingredients")
             .navigationBarTitleDisplayMode(.inline)
+            .onDisappear {
+                homeBar.add(selectedBottleIds, from: bottles)
+            }
         }
     }
 }
