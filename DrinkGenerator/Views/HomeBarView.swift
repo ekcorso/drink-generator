@@ -10,9 +10,6 @@ import SwiftUI
 struct HomeBarView: View {
     @EnvironmentObject var homeBar: HomeBar
     @State private var showingSheet = false
-    var ingredients: [Bottle] {
-        Array(homeBar.bottleList)
-    }
     
     var homeBarIsEmpty: Bool {
         if homeBar.bottleList.count == 0 {
@@ -37,23 +34,14 @@ struct HomeBarView: View {
                 }
                 .navigationTitle("Home Bar")
                 .navigationBarTitleDisplayMode(.inline)
-                .onAppear {
-                    print("homeBar bottleslist IDs in HomeBarView: \(homeBar.bottleList.map { $0.id })")
-                }
             } else {
                 VStack {
                     List {
                         Section(header: Text("Bottles in your home bar: ")) {
-                            ForEach(ingredients) { bottle in
+                            ForEach(Array(homeBar.bottleList)) { bottle in
                                 Text(bottle.name)
                             }
-                            .onDelete(perform: { indexSet in
-                                homeBar.delete(indexSet, from: ingredients)
-                            })
                         }
-                    }
-                    .onAppear {
-                        print("homeBar bottleslist IDs in HomeBarView: \(homeBar.bottleList.map { $0.id })")
                     }
                     .listStyle(GroupedListStyle())
                     NavigationLink("Add more bottles", destination: IngredientView())
@@ -63,7 +51,7 @@ struct HomeBarView: View {
                         .clipShape(Capsule())
                     
                     Button("Print List") {
-                        for bottle in homeBar.bottleList {
+                        for bottle in Array(homeBar.bottleList) {
                             print(bottle.name)
                         }
                     }
