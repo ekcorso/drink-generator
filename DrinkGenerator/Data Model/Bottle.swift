@@ -23,8 +23,7 @@ class Bottle: Identifiable, Hashable, ObservableObject {
     static let example4 = Bottle(name: "Campari")
     
     func hash(into hasher: inout Hasher) {
-        //hasher.combine(name)
-        hasher.combine(id)
+        hasher.combine(name)
     }
     
     init(name: String) {
@@ -34,7 +33,7 @@ class Bottle: Identifiable, Hashable, ObservableObject {
 
 extension Bottle: Comparable, Equatable {
     static func < (lhs: Bottle, rhs: Bottle) -> Bool {
-        lhs.id < rhs.id
+        lhs.name < rhs.name
     }
     
     static func == (lhs: Bottle, rhs: Bottle) -> Bool {
