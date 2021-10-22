@@ -23,8 +23,7 @@ class Bottle: Identifiable, Hashable, ObservableObject {
     static let example4 = Bottle(name: "Campari")
     
     func hash(into hasher: inout Hasher) {
-        //hasher.combine(name)
-        hasher.combine(id)
+        hasher.combine(name)
     }
     
     init(name: String) {

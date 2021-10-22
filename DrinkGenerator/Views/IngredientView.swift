@@ -14,6 +14,7 @@ struct IngredientView: View {
     let bottles = CocktailAPI.ingredients
     
     @State private var selectedBottleIds = Set<UUID>()
+//    @State private var selectedBottles = Set<Bottle>()
     
     var body: some View {
         NavigationView {
