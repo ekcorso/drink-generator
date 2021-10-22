@@ -11,8 +11,7 @@ struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
 //    @Environment(\.dismiss) var dismiss
     
-//    let bottles = CocktailAPI.ingredients
-    let bottles = [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4]
+    let bottles = CocktailAPI.ingredients
     
     @State private var selectedBottleIds = Set<UUID>()
 //    @State private var selectedBottles = Set<Bottle>()
@@ -43,9 +42,6 @@ struct IngredientView: View {
                     List(bottles, selection: $selectedBottleIds) { bottle in
                         Text(bottle.name)
                     }
-//                    .onChange(of: selectedBottles) { value in
-//                        homeBar.add(value, from: bottles)
-//                    }
                 }
                 .toolbar {
                     EditButton()
@@ -55,9 +51,6 @@ struct IngredientView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onDisappear {
                 homeBar.add(selectedBottleIds, from: bottles)
-            }
-            .onAppear {
-                print("bottles in IngredientView \(bottles.map { $0.id })")
             }
         }
     }
