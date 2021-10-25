@@ -41,6 +41,9 @@ struct HomeBarView: View {
                             ForEach(Array(homeBar.bottleList)) { bottle in
                                 Text(bottle.name)
                             }
+                            .onDelete(perform: { indexSet in
+                                        homeBar.delete(indexSet, from: Array(homeBar.bottleList))
+                            })
                         }
                     }
                     .listStyle(GroupedListStyle())
