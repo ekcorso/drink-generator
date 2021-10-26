@@ -53,16 +53,6 @@ struct HomeBarView: View {
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                     
-                    Button("Print List") {
-                        for bottle in Array(homeBar.bottleList) {
-                            print(bottle.name)
-                        }
-                    }
-                    .padding(10)
-                    .background(Color(.systemPink))
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                    Divider()
                     Text("Feeling adventurous? To get a randomly generated cocktail idea from your available ingredients, tap \"Combos\"! Or tap \"Recipes\" to get tried and true recipes you can make instead.")
                     Divider()
                 }
