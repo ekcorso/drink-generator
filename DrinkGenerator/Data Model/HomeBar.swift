@@ -9,22 +9,44 @@ import Foundation
 
 class HomeBar: ObservableObject {
     @Published private(set) var bottleList = Set<Bottle>()
-    static let saveKey = "SavedData"
     
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
-            if let bottleList = try? JSONDecoder().decode(Set<Bottle>.self, from: data) {
-                self.bottleList = bottleList
-                return
-            }
+        getBottleListDataFromDirectory()
+    }
+
+    enum DataPersistenceError: Error {
+        case saveFailed
+        case decodingFailed
+    }
+  
+    func save() throws {
+        guard let encoded = try? JSONEncoder().encode(bottleList) else {
+            print("encoding failed")
+            DataPersistenceError.saveFailed
+            return
         }
         
-        self.bottleList = Set<Bottle>()
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
+        
+        do {
+            try encoded.write(to: url)
+        } catch {
+            print("save failed")
+        }
     }
     
-    private func save() {
-        if let encoded = try? JSONEncoder().encode(bottleList) {
-            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+    func getBottleListDataFromDirectory() {
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
+        
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let decodedBottleList = try JSONDecoder().decode(Set<Bottle>.self, from: jsonData)
+            self.bottleList = decodedBottleList
+        } catch {
+            DataPersistenceError.decodingFailed
+            print("here's a parsing error")
         }
     }
     
@@ -37,7 +59,7 @@ class HomeBar: ObservableObject {
         var editedBottleList = bottles
         editedBottleList.remove(atOffsets: offsets)
         self.bottleList = Set(editedBottleList)
-        save()
+        try? save()
     }
     
     func add(_ selections: Set<UUID>, from bottles: [Bottle]) {
@@ -46,6 +68,6 @@ class HomeBar: ObservableObject {
         for bottle in bottlesToAdd {
             self.bottleList.insert(bottle)
         }
-        save()
+        try? save()
     }
 }

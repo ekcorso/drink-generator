@@ -29,6 +29,7 @@
 		FCF28FC326A0B3F600930F0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF28FC226A0B3F600930F0F /* ContentView.swift */; };
 		FCF28FC526A0B3FB00930F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF28FC426A0B3FB00930F0F /* Assets.xcassets */; };
 		FCF28FC826A0B3FB00930F0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF28FC726A0B3FB00930F0F /* Preview Assets.xcassets */; };
+		FCFC1FFB2728633F00D18B9E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC1FFA2728633F00D18B9E /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		FCF28FC426A0B3FB00930F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCF28FC726A0B3FB00930F0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FCF28FC926A0B3FB00930F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCFC1FFA2728633F00D18B9E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = DrinkGenerator/Helpers/Utilities.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				FC60341526D967B9003569D7 /* HomeBar.swift */,
+				FCFC1FFA2728633F00D18B9E /* Utilities.swift */,
 				FC92E7B326AF98C7007DAD10 /* Bottle.swift */,
 				FC92E7AF26AF9657007DAD10 /* IngredientList.swift */,
 				FCCAD98B26C0CAA6004575F7 /* Recipe.swift */,
@@ -233,6 +236,7 @@
 				FCF28FC326A0B3F600930F0F /* ContentView.swift in Sources */,
 				FC60341626D967B9003569D7 /* HomeBar.swift in Sources */,
 				FCCAD98E26C0CF0C004575F7 /* DrinkList.swift in Sources */,
+				FCFC1FFB2728633F00D18B9E /* Utilities.swift in Sources */,
 				FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */,
 				FC964EC426C2FCAB008C0547 /* RecipeRow.swift in Sources */,
 				FC2FE91126F1316200027342 /* HomeBarView.swift in Sources */,
