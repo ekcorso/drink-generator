@@ -9,12 +9,10 @@ import SwiftUI
 
 struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
-//    @Environment(\.dismiss) var dismiss
     
     let bottles = CocktailAPI.ingredients
     
     @State private var selectedBottleIds = Set<UUID>()
-//    @State private var selectedBottles = Set<Bottle>()
     
     var body: some View {
         NavigationView {
