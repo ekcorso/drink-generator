@@ -8,7 +8,25 @@
 import Foundation
 
 class HomeBar: ObservableObject {
-    @Published var bottleList = Set<Bottle>()
+    @Published private(set) var bottleList = Set<Bottle>()
+    static let saveKey = "SavedData"
+    
+    init() {
+        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+            if let bottleList = try? JSONDecoder().decode(Set<Bottle>.self, from: data) {
+                self.bottleList = bottleList
+                return
+            }
+        }
+        
+        self.bottleList = Set<Bottle>()
+    }
+    
+    private func save() {
+        if let encoded = try? JSONEncoder().encode(bottleList) {
+            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+        }
+    }
     
     func update(_ selections: Set<UUID>, from bottles: [Bottle]) {
         let currentBottles = bottles.filter { selections.contains($0.id) }
@@ -19,6 +37,7 @@ class HomeBar: ObservableObject {
         var editedBottleList = bottles
         editedBottleList.remove(atOffsets: offsets)
         self.bottleList = Set(editedBottleList)
+        save()
     }
     
     func add(_ selections: Set<UUID>, from bottles: [Bottle]) {
@@ -27,5 +46,6 @@ class HomeBar: ObservableObject {
         for bottle in bottlesToAdd {
             self.bottleList.insert(bottle)
         }
+        save()
     }
 }

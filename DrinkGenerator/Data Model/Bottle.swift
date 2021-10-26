@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Bottle: Identifiable, Hashable, ObservableObject {
+class Bottle: Identifiable, Hashable, ObservableObject, Codable {
     
     var name: String
     var id = UUID()
