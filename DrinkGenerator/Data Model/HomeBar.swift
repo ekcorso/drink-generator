@@ -9,45 +9,14 @@ import Foundation
 
 class HomeBar: ObservableObject {
     @Published private(set) var bottleList = Set<Bottle>()
-    
-    init() {
-        getBottleListDataFromDirectory()
-    }
 
     enum DataPersistenceError: Error {
         case saveFailed
         case decodingFailed
     }
-  
-    func save() throws {
-        guard let encoded = try? JSONEncoder().encode(bottleList) else {
-            print("encoding failed")
-            DataPersistenceError.saveFailed
-            return
-        }
-        
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
-        
-        do {
-            try encoded.write(to: url)
-        } catch {
-            print("save failed")
-        }
-    }
     
-    func getBottleListDataFromDirectory() {
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
-        
-        do {
-            let jsonData = try Data(contentsOf: url)
-            let decodedBottleList = try JSONDecoder().decode(Set<Bottle>.self, from: jsonData)
-            self.bottleList = decodedBottleList
-        } catch {
-            DataPersistenceError.decodingFailed
-            print("here's a parsing error")
-        }
+    init() {
+        getBottleListDataFromDirectory()
     }
     
     func update(_ selections: Set<UUID>, from bottles: [Bottle]) {
@@ -69,5 +38,36 @@ class HomeBar: ObservableObject {
             self.bottleList.insert(bottle)
         }
         try? save()
+    }
+    
+    private func getBottleListDataFromDirectory() {
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
+        
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let decodedBottleList = try JSONDecoder().decode(Set<Bottle>.self, from: jsonData)
+            self.bottleList = decodedBottleList
+        } catch {
+            DataPersistenceError.decodingFailed
+            print("here's a parsing error")
+        }
+    }
+    
+    private func save() throws {
+        guard let encoded = try? JSONEncoder().encode(bottleList) else {
+            print("encoding failed")
+            DataPersistenceError.saveFailed
+            return
+        }
+        
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
+        
+        do {
+            try encoded.write(to: url)
+        } catch {
+            print("save failed")
+        }
     }
 }
