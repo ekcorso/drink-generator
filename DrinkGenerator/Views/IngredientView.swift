@@ -9,35 +9,18 @@ import SwiftUI
 
 struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
-    
-    let bottles = CocktailAPI.ingredients
+    var bottles = CocktailAPI.ingredients
+    var filteredBottles: [Bottle] {
+        return Array(Set(bottles).subtracting(homeBar.bottleList)).sorted()
+    }
     
     @State private var selectedBottleIds = Set<UUID>()
     
     var body: some View {
         NavigationView {
             VStack {
-//                Section {
-//                    Text(selectedBottleIds.count == 0 ? "Select up to 10" : "\(selectedBottleIds.count) items selected")
-//                }
-//                Section {
-//                    Button("Print selected") {
-//                        print("Homebar bottles:")
-//                        for bottle in homeBar.bottleList {
-//                            print(bottle.name)
-//                        }
-//                        print("Selector bottles:")
-//                        for bottle in bottles {
-//                            for id in selectedBottleIds {
-//                                if bottle.id == id {
-//                                    print(bottle.name)
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
                 Section {
-                    List(bottles, selection: $selectedBottleIds) { bottle in
+                    List(filteredBottles, selection: $selectedBottleIds) { bottle in
                         Text(bottle.name)
                     }
                 }
