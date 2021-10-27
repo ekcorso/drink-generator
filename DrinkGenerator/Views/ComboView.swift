@@ -16,11 +16,11 @@ struct ComboView: View {
     //takenBy is temporarily hardcoded. Still deciding if this should be decided by the user or not
     var takenBy: Int = 3
     
-    var randomCombo: [Bottle] { ComboGenerator().generateAllIngredientCombos(ingredients: ingredients, takenBy: takenBy).randomElement()!
+    var randomCombo: [Bottle] { ComboGenerator().selectRandomIngredientCombo(ingredients: ingredients, takenBy: takenBy)
     }
     
     var body: some View {
-        if ingredients.count > 3 {
+        if ingredients.count >= takenBy {
             NavigationView {
                 VStack(alignment: .center) {
                     Section {
