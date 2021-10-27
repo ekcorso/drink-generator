@@ -9,7 +9,7 @@ import Foundation
 
 struct ComboGenerator {
     func selectRandomIngredientCombo(ingredients: [Bottle], takenBy: Int) -> [Bottle] {
-        let drinkCombos = generateAllIngredientCombos(ingredients: ingredients, takenBy: takenBy)
+        let drinkCombos = generateAllIngredientCombos(ingredients: ingredients.shuffled(), takenBy: takenBy).shuffled()
         if let randomCombo = drinkCombos.randomElement() {
             return randomCombo
         } else {

@@ -16,8 +16,7 @@ struct ComboView: View {
     //takenBy is temporarily hardcoded. Still deciding if this should be decided by the user or not
     var takenBy: Int = 3
     
-    var randomCombo: [Bottle] { ComboGenerator().selectRandomIngredientCombo(ingredients: ingredients, takenBy: takenBy)
-    }
+    @State private var randomCombo = [Bottle]()
     
     var body: some View {
         if ingredients.count >= takenBy {
@@ -37,7 +36,7 @@ struct ComboView: View {
                     Divider()
                     Section {
                         Button("Generate new combo") {
-                            //Needs to shuffle the allCombos array
+                            randomCombo = ComboGenerator().selectRandomIngredientCombo(ingredients: ingredients, takenBy: takenBy)
                         }
                         .padding()
                         .background(Color(.blue))
@@ -47,6 +46,9 @@ struct ComboView: View {
                 }
                 .navigationTitle("Combos")
                 .navigationBarTitleDisplayMode(.inline)
+                .onAppear {
+                    randomCombo =  ComboGenerator().selectRandomIngredientCombo(ingredients: ingredients, takenBy: takenBy)
+                }
             }
             //        ForEach(Array(zip(allCombos.indicies, allCombos
             //        )), id: \.0) { index, combo in
