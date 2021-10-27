@@ -8,7 +8,16 @@
 import Foundation
 
 struct ComboGenerator {
-    func generateAllIngredientCombos(ingredients: [Bottle], takenBy: Int) -> [[Bottle]] {
+    func selectRandomIngredientCombo(ingredients: [Bottle], takenBy: Int) -> [Bottle] {
+        let drinkCombos = generateAllIngredientCombos(ingredients: ingredients, takenBy: takenBy)
+        if let randomCombo = drinkCombos.randomElement() {
+            return randomCombo
+        } else {
+            return [Bottle]()
+        }
+    }
+    
+    private func generateAllIngredientCombos(ingredients: [Bottle], takenBy: Int) -> [[Bottle]] {
         if(ingredients.count == takenBy) {
             return [ingredients]
         }
@@ -33,13 +42,5 @@ struct ComboGenerator {
         result += generateAllIngredientCombos(ingredients: rest, takenBy: takenBy)
         return result
         
-    }
-    
-    func selectRandomIngredientCombo(drinkCombos: [[Bottle]]) -> [Bottle]? {
-        if let randomCombo = drinkCombos.randomElement() {
-            return randomCombo
-        } else {
-            return nil
-        }
     }
 }
