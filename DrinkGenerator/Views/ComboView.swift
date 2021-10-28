@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combinatorics
 
 struct ComboView: View {
     @EnvironmentObject var homeBar: HomeBar
@@ -36,7 +37,7 @@ struct ComboView: View {
                     Divider()
                     Section {
                         Button("Generate new combo") {
-                            randomCombo = ComboGenerator().selectRandomIngredientCombo(ingredients: ingredients, takenBy: takenBy)
+                            randomCombo = Combination(of: ingredients, size: takenBy).map { $0 }.randomElement() ?? [Bottle]()
                         }
                         .padding()
                         .background(Color(.blue))
@@ -47,7 +48,7 @@ struct ComboView: View {
                 .navigationTitle("Combos")
                 .navigationBarTitleDisplayMode(.inline)
                 .onAppear {
-                    randomCombo =  ComboGenerator().selectRandomIngredientCombo(ingredients: ingredients, takenBy: takenBy)
+                    randomCombo =  Combination(of: ingredients, size: takenBy).map { $0 }.randomElement() ?? [Bottle]()
                 }
             }
             //        ForEach(Array(zip(allCombos.indicies, allCombos
