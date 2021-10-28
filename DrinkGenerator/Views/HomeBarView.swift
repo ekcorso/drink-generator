@@ -9,19 +9,10 @@ import SwiftUI
 
 struct HomeBarView: View {
     @EnvironmentObject var homeBar: HomeBar
-    @State private var showingSheet = false
-    
-    var homeBarIsEmpty: Bool {
-        if homeBar.bottleList.count == 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
+        
     var body: some View {
         NavigationView {
-            if homeBarIsEmpty {
+            if homeBar.bottleList.isEmpty {
                 VStack {
                     Text("Your home bar is empty.")
                     Text("Let's fix that...")
