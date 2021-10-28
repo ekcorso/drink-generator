@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,7 +30,23 @@
 		FCF28FC526A0B3FB00930F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF28FC426A0B3FB00930F0F /* Assets.xcassets */; };
 		FCF28FC826A0B3FB00930F0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF28FC726A0B3FB00930F0F /* Preview Assets.xcassets */; };
 		FCFC1FFB2728633F00D18B9E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC1FFA2728633F00D18B9E /* Utilities.swift */; };
+		FCFC1FFE272B11F100D18B9E /* Combinatorics in Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; };
+		FCFC1FFF272B11F100D18B9E /* Combinatorics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FCFC2000272B11F200D18B9E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FCFC1FFF272B11F100D18B9E /* Combinatorics in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
@@ -65,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFC1FFE272B11F100D18B9E /* Combinatorics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,12 +185,16 @@
 				FCF28FB926A0B3F600930F0F /* Sources */,
 				FCF28FBA26A0B3F600930F0F /* Frameworks */,
 				FCF28FBB26A0B3F600930F0F /* Resources */,
+				FCFC2000272B11F200D18B9E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DrinkGenerator;
+			packageProductDependencies = (
+				FCFC1FFD272B11F100D18B9E /* Combinatorics */,
+			);
 			productName = DrinkGenerator;
 			productReference = FCF28FBD26A0B3F600930F0F /* DrinkGenerator.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +222,9 @@
 				Base,
 			);
 			mainGroup = FCF28FB426A0B3F500930F0F;
+			packageReferences = (
+				FCFC1FFC272B11F100D18B9E /* XCRemoteSwiftPackageReference "swift-combinatorics" */,
+			);
 			productRefGroup = FCF28FBE26A0B3F600930F0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,6 +460,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCFC1FFC272B11F100D18B9E /* XCRemoteSwiftPackageReference "swift-combinatorics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dankogai/swift-combinatorics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCFC1FFD272B11F100D18B9E /* Combinatorics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCFC1FFC272B11F100D18B9E /* XCRemoteSwiftPackageReference "swift-combinatorics" */;
+			productName = Combinatorics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FCF28FB526A0B3F500930F0F /* Project object */;
 }

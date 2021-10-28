@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combinatorics
 
 struct ComboGenerator {
+//    var allCombos: [[Bottle]] = Combination(of: <#T##Sequence#>, size: <#T##Int#>)
+    
     func selectRandomIngredientCombo(ingredients: [Bottle], takenBy: Int) -> [Bottle] {
         let drinkCombos = generateAllIngredientCombos(ingredients: ingredients.shuffled(), takenBy: takenBy).shuffled()
         if let randomCombo = drinkCombos.randomElement() {
@@ -41,6 +44,5 @@ struct ComboGenerator {
         result += subCombos.map { [ingredients[0]] + $0 }
         result += generateAllIngredientCombos(ingredients: rest, takenBy: takenBy)
         return result
-        
     }
 }
