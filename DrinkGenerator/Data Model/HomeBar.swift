@@ -9,6 +9,7 @@ import Foundation
 
 class HomeBar: ObservableObject {
     @Published private(set) var bottleList = Set<Bottle>()
+    @Published var selectedBottle: Bottle?
 
     enum DataPersistenceError: Error {
         case saveFailed
@@ -17,6 +18,13 @@ class HomeBar: ObservableObject {
     
     init() {
         getBottleListDataFromDirectory()
+    }
+    
+    func setSelectedBottle(bottle: Bottle?) {
+        if let bottle = bottle {
+            self.selectedBottle = bottle
+        }
+        // save
     }
     
     func update(_ selections: Set<UUID>, from bottles: [Bottle]) {

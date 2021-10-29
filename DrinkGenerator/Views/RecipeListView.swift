@@ -12,20 +12,12 @@ struct RecipeListView: View {
     @EnvironmentObject var homeBar: HomeBar
     @State private var showingSettingsSheet = false
 
-     var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, homeBar: homeBar).fetchDrinks()
+    var drinks: [DrinkStub] { CocktailAPI(requestType: .drinkStubList, selectedBottle: homeBar.selectedBottle).fetchDrinks()
      }
-    
-    var drinksIsEmpty: Bool {
-        if drinks.count == 0 {
-            return true
-        } else {
-            return false
-        }
-    }
     
     var body: some View {
         NavigationView {
-            if drinksIsEmpty {
+            if homeBar.bottleList.isEmpty {
                 VStack {
                     Text("""
                         That search didn't return any recipes 🤔
@@ -66,6 +58,9 @@ struct RecipeListView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            print("Selected bottle in Recipe List View is \(homeBar.selectedBottle?.name)")
         }
     }
 }

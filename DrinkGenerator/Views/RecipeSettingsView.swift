@@ -12,12 +12,11 @@ struct RecipeSettingsView: View {
     var bottles: [Bottle] {
         Array(homeBar.bottleList)
     }
-    @State private var selectedBottle = Set<Bottle>()
+    @State private var selectedBottle = Bottle(name: "Random")
     
     //This is currently unused
     @State private var wantsRandomRecipes: Bool = false
 
-    
     var body: some View {
         NavigationView {
             Form {
@@ -27,10 +26,13 @@ struct RecipeSettingsView: View {
                             Text($0.name)
                         }
                     }
+                    .onChange(of: selectedBottle) { value in
+                        self.homeBar.setSelectedBottle(bottle: selectedBottle)
+                    }
                 }
                 Section(header: Text("Add bottles to your home bar")) {
                     NavigationLink(destination: IngredientView()) {
-                        Text("View your home bar")
+                        Text("Select Ingredients")
                     }
                 }
                 Section(header: Text("Show me recipes from a random ingredient")) {
@@ -39,6 +41,9 @@ struct RecipeSettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
+            .onDisappear {
+                print("Selected bottle in Settings is \(homeBar.selectedBottle?.name)")
+            }
         }
     }
 }

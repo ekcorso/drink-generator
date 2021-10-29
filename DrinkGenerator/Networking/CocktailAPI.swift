@@ -11,6 +11,7 @@ struct CocktailAPI {
     private var requestType: RequestType
     private var homeBar: HomeBar?
     private var recipeId: Int?
+    private var selectedBottle: Bottle?
     
     static var ingredients: [Bottle] {
         return CocktailAPI(requestType: .ingredientList).fetchIngredients()
@@ -19,7 +20,7 @@ struct CocktailAPI {
     private var urlString: String {
         switch requestType {
         case .drinkStubList:
-            return buildDrinkStubListUrl(with: homeBar)
+            return buildDrinkStubListUrl(with: selectedBottle)
         case .recipeDetail:
             return buildRecipeDetailUrl(recipeId: recipeId)
         case .ingredientList:
@@ -31,9 +32,10 @@ struct CocktailAPI {
         self.requestType = requestType
     }
     
-    init(requestType: RequestType, homeBar: HomeBar) {
+    init(requestType: RequestType, selectedBottle: Bottle?) {
         self.init(requestType: requestType)
-        self.homeBar = homeBar
+        //self.homeBar = homeBar
+        self.selectedBottle = selectedBottle
     }
     
     init(requestType: RequestType, recipeId: Int) {
@@ -42,29 +44,35 @@ struct CocktailAPI {
     }
     
     //DrinkStubList (aka RecipeListView's result)
-    private func buildDrinkStubListUrl(with homeBar: HomeBar?) -> String {
+    private func buildDrinkStubListUrl(with bottle: Bottle?) -> String {
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-        guard let homeBar = homeBar else {
-            // TODO: handle this
+//        guard let bottle = bottle else {
+//            // TODO: handle this
+//            return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
+//        }
+        
+        if let bottle = bottle {
+            return urlBaseString + bottle.snakeName
+        } else {
             return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
         }
         
-        if homeBar.bottleList.isEmpty {
-            // TODO: handle this
-            return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
-        } else if homeBar.bottleList.count == 1 {
-            let firstBottle = homeBar.bottleList.first!.snakeName
-            let searchTerm = String(firstBottle)
-            return urlBaseString + searchTerm
-        } else {
-            let bottles: [Bottle] = Array(homeBar.bottleList.shuffled().prefix(3))
-            var searchTerms = [String]()
-            for bottle in bottles {
-                searchTerms.append(bottle.snakeName)
-            }
-            let combinedSearchTerms = searchTerms.joined(separator: ",")
-            return urlBaseString + combinedSearchTerms
-        }
+//        if homeBar.bottleList.isEmpty {
+//            // TODO: handle this
+//            return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
+//        } else if homeBar.bottleList.count == 1 {
+//            let firstBottle = homeBar.bottleList.first!.snakeName
+//            let searchTerm = String(firstBottle)
+//            return urlBaseString + searchTerm
+//        } else {
+//            let bottles: [Bottle] = Array(homeBar.bottleList.shuffled().prefix(3))
+//            var searchTerms = [String]()
+//            for bottle in bottles {
+//                searchTerms.append(bottle.snakeName)
+//            }
+//            let combinedSearchTerms = searchTerms.joined(separator: ",")
+//            return urlBaseString + combinedSearchTerms
+//        }
     }
     
     //RecipeDetail
