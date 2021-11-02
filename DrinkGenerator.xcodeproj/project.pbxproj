@@ -31,6 +31,7 @@
 		FCFC1FFB2728633F00D18B9E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC1FFA2728633F00D18B9E /* Utilities.swift */; };
 		FCFC1FFE272B11F100D18B9E /* Combinatorics in Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; };
 		FCFC1FFF272B11F100D18B9E /* Combinatorics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FCFC20042730CC4500D18B9E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC20032730CC4400D18B9E /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +73,7 @@
 		FCF28FC726A0B3FB00930F0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FCF28FC926A0B3FB00930F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFC1FFA2728633F00D18B9E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = DrinkGenerator/Helpers/Utilities.swift; sourceTree = SOURCE_ROOT; };
+		FCFC20032730CC4400D18B9E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = DrinkGenerator/Networking/Network.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				FC92E7B126AF96A4007DAD10 /* CocktailAPI.swift */,
+				FCFC20032730CC4400D18B9E /* Network.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				FC92E7B226AF96A4007DAD10 /* CocktailAPI.swift in Sources */,
 				FC464B2726D333500031AEF7 /* ComboView.swift in Sources */,
 				FCA90E2226C5C6AE004B6F11 /* RecipeDetailView.swift in Sources */,
+				FCFC20042730CC4500D18B9E /* Network.swift in Sources */,
 				FCF28FC326A0B3F600930F0F /* ContentView.swift in Sources */,
 				FC60341626D967B9003569D7 /* HomeBar.swift in Sources */,
 				FCCAD98E26C0CF0C004575F7 /* DrinkList.swift in Sources */,
