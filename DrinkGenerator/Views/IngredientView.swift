@@ -6,10 +6,27 @@
 //
 
 import SwiftUI
+import Network
 
 struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
-    var bottles = CocktailAPI.ingredients
+    private let monitor = NWPathMonitor()
+    
+    var bottles: [Bottle] {
+        if let networkStatus = Network().checkNetworkAvailability() {
+            let bottles = CocktailAPI.ingredients
+            try? save(bottles)
+            return bottles
+        } else {
+            if let bottles = getIngredientsDataFromDirectory() {
+                return bottles
+            }
+        }
+        
+        print("How did we get here?")
+        return [Bottle.example1, Bottle.example2, Bottle.example3]
+    }
+    
     var filteredBottles: [Bottle] {
         return Array(Set(bottles).subtracting(homeBar.bottleList)).sorted()
     }
@@ -26,6 +43,12 @@ struct IngredientView: View {
                 }
                 .toolbar {
                     EditButton()
+                }
+                Section {
+                    Button("Network status") {
+                        let network = Network()
+                        print(network.checkNetworkAvailability() ?? "No value")
+                    }
                 }
             }
             .navigationTitle("Cocktail Ingredients")
