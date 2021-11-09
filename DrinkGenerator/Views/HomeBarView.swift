@@ -80,7 +80,7 @@ struct HomeBarView: View {
         do {
             let jsonData = try Data(contentsOf: url)
             let decodedIngredients = try JSONDecoder().decode([Bottle].self, from: jsonData)
-            print("homebar decoding succeeded")
+            print("getting saved ingredients succeeded in HomeBar View")
             return decodedIngredients
         } catch {
             DataPersistenceError.decodingFailed

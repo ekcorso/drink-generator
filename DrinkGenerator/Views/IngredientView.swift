@@ -13,8 +13,7 @@ struct IngredientView: View {
     private let monitor = NWPathMonitor()
     
     var bottles: [Bottle] {
-        if let networkStatus = Network().checkNetworkAvailability() {
-            let bottles = CocktailAPI.ingredients
+        if let bottles = CocktailAPI.ingredients {
             try? save(bottles)
             return bottles
         } else {
@@ -22,7 +21,6 @@ struct IngredientView: View {
                 return bottles
             }
         }
-        
         print("How did we get here?")
         return [Bottle.example1, Bottle.example2, Bottle.example3]
     }
@@ -43,12 +41,6 @@ struct IngredientView: View {
                 }
                 .toolbar {
                     EditButton()
-                }
-                Section {
-                    Button("Network status") {
-                        let network = Network()
-                        print(network.checkNetworkAvailability() ?? "No value")
-                    }
                 }
             }
             .navigationTitle("Cocktail Ingredients")
@@ -88,7 +80,7 @@ struct IngredientView: View {
         do {
             let jsonData = try Data(contentsOf: url)
             let decodedIngredients = try JSONDecoder().decode([Bottle].self, from: jsonData)
-            print("succeeded")
+            print("getting saved ingredients succeeded in Ingredient View")
             return decodedIngredients
         } catch {
             DataPersistenceError.decodingFailed
