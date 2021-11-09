@@ -13,8 +13,12 @@ struct CocktailAPI {
     private var recipeId: Int?
     private var selectedBottle: Bottle?
     
-    static var ingredients: [Bottle] {
-        return CocktailAPI(requestType: .ingredientList).fetchIngredients()
+    static var ingredients: [Bottle]? {
+        if let ingredients = CocktailAPI(requestType: .ingredientList).fetchIngredients() {
+            return ingredients
+        } else {
+            return nil
+        }
     }
     
     private var urlString: String {
@@ -109,19 +113,22 @@ struct CocktailAPI {
         return loaded.drinks.sorted()
     }
     
-    func fetchIngredients() -> [Bottle] {
+    func fetchIngredients() -> [Bottle]? {
         guard let url = URL(string: urlString) else {
-            fatalError("Failed to cast urlString as url.")
+            return nil
+            //fatalError("Failed to cast urlString as url.")
         }
         
         guard let data = try? Data(contentsOf: url) else {
-            fatalError("Failed to load data from url.")
+            return nil
+            //fatalError("Failed to load data from url.")
         }
         
         let decoder = JSONDecoder()
         
         guard let loaded = try? decoder.decode(IngredientList.self, from: data) else {
-            fatalError("Failed to decode data.")
+            return nil
+            //fatalError("Failed to decode data.")
             
         }
         return convertIngredientsToBottles(ingredients: loaded.drinks)
