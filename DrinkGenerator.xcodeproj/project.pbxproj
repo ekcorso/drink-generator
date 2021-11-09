@@ -32,6 +32,7 @@
 		FCFC1FFE272B11F100D18B9E /* Combinatorics in Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; };
 		FCFC1FFF272B11F100D18B9E /* Combinatorics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FCFC20042730CC4500D18B9E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC20032730CC4400D18B9E /* Network.swift */; };
+		FCFC200A27347D0200D18B9E /* DataPersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200927347D0100D18B9E /* DataPersistenceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +75,7 @@
 		FCF28FC926A0B3FB00930F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFC1FFA2728633F00D18B9E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = DrinkGenerator/Helpers/Utilities.swift; sourceTree = SOURCE_ROOT; };
 		FCFC20032730CC4400D18B9E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = DrinkGenerator/Networking/Network.swift; sourceTree = SOURCE_ROOT; };
+		FCFC200927347D0100D18B9E /* DataPersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				FC464B2626D333500031AEF7 /* ComboView.swift */,
 				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
 				FC2FE91026F1316200027342 /* HomeBarView.swift */,
+				FCFC200927347D0100D18B9E /* DataPersistenceError.swift */,
 				FC964EC326C2FCAB008C0547 /* RecipeRow.swift */,
 			);
 			path = Views;
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFC200A27347D0200D18B9E /* DataPersistenceError.swift in Sources */,
 				FC8A78AD26C4AE2F007B9B90 /* ImageView.swift in Sources */,
 				FC6E0DE026F11CE100740CCB /* MainView.swift in Sources */,
 				FC92E7B226AF96A4007DAD10 /* CocktailAPI.swift in Sources */,
