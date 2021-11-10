@@ -51,11 +51,6 @@ struct IngredientView: View {
         }
     }
     
-    private enum DataPersistenceError: Error {
-        case saveFailed
-        case decodingFailed
-    }
-    
     func save(_ ingredients: [Bottle]) throws {
         guard let encoded = try? JSONEncoder().encode(ingredients) else {
             print("encoding failed")

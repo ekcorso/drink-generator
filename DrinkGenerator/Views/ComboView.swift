@@ -75,7 +75,6 @@ struct ComboView: View {
 
 struct ComboView_Previews: PreviewProvider {
     static var previews: some View {
-        //        ComboView(ingredients: [Bottle.example1, Bottle.example2, Bottle.example3, Bottle.example4])
         ComboView()
             .environmentObject(HomeBar())
     }

@@ -60,7 +60,7 @@ struct RecipeListView: View {
             }
         }
         .onAppear {
-            print("Selected bottle in Recipe List View is \(homeBar.selectedBottle?.name)")
+            print("Selected bottle in Recipe List View is \(String(describing: homeBar.selectedBottle?.name))")
         }
     }
 }

@@ -116,20 +116,16 @@ struct CocktailAPI {
     func fetchIngredients() -> [Bottle]? {
         guard let url = URL(string: urlString) else {
             return nil
-            //fatalError("Failed to cast urlString as url.")
         }
         
         guard let data = try? Data(contentsOf: url) else {
             return nil
-            //fatalError("Failed to load data from url.")
         }
         
         let decoder = JSONDecoder()
         
         guard let loaded = try? decoder.decode(IngredientList.self, from: data) else {
             return nil
-            //fatalError("Failed to decode data.")
-            
         }
         return convertIngredientsToBottles(ingredients: loaded.drinks)
     }

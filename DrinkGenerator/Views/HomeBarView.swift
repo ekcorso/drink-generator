@@ -55,39 +55,6 @@ struct HomeBarView: View {
             }
         }
     }
-    
-    func save(_ ingredients: [Bottle]) throws {
-        guard let encoded = try? JSONEncoder().encode(ingredients) else {
-            print("encoding failed")
-            DataPersistenceError.saveFailed
-            return
-        }
-        
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("ingredients.txt")
-        
-        do {
-            try encoded.write(to: url)
-        } catch {
-            print("save failed")
-        }
-    }
-    
-    static func getIngredientsDataFromDirectory() -> [Bottle]? {
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("ingredients.txt")
-        
-        do {
-            let jsonData = try Data(contentsOf: url)
-            let decodedIngredients = try JSONDecoder().decode([Bottle].self, from: jsonData)
-            print("getting saved ingredients succeeded in HomeBar View")
-            return decodedIngredients
-        } catch {
-            DataPersistenceError.decodingFailed
-            print("here's a parsing error")
-            return nil
-        }
-    }
 }
 
 struct HomeBarView_Previews: PreviewProvider {
