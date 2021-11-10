@@ -10,11 +10,6 @@ import Foundation
 class HomeBar: ObservableObject {
     @Published private(set) var bottleList = Set<Bottle>()
     @Published var selectedBottle: Bottle?
-
-    enum DataPersistenceError: Error {
-        case saveFailed
-        case decodingFailed
-    }
     
     init() {
         getBottleListDataFromDirectory()
