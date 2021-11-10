@@ -29,7 +29,7 @@ struct HomeBarView: View {
                 VStack {
                     List {
                         Section(header: Text("Bottles in your home bar: ")) {
-                            ForEach(Array(homeBar.bottleList)) { bottle in
+                            ForEach(Array(homeBar.bottleList).sorted()) { bottle in
                                 Text(bottle.name)
                             }
                             .onDelete(perform: { indexSet in
