@@ -33,7 +33,7 @@ struct HomeBarView: View {
                                 Text(bottle.name)
                             }
                             .onDelete(perform: { indexSet in
-                                        homeBar.delete(indexSet, from: Array(homeBar.bottleList))
+                                homeBar.delete(indexSet, from: Array(homeBar.bottleList).sorted())
                             })
                         }
                     }
