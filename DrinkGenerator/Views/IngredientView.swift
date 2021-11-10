@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import Network
 
 struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
-    private let monitor = NWPathMonitor()
     
     var bottles: [Bottle] {
         if let bottles = CocktailAPI.ingredients {
