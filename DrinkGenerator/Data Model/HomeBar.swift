@@ -8,11 +8,18 @@
 import Foundation
 
 class HomeBar: ObservableObject {
+    @Published var allIngredients: [Bottle]?
     @Published private(set) var bottleList = Set<Bottle>()
     @Published var selectedBottle: Bottle?
     
     init() {
         getBottleListDataFromDirectory()
+       
+        if let ingredients = CocktailAPI.ingredients {
+            allIngredients = ingredients
+        } else {
+            getIngredientsDataFromDirectory()
+        }
     }
     
     func setSelectedBottle(bottle: Bottle?) {
@@ -41,6 +48,22 @@ class HomeBar: ObservableObject {
             self.bottleList.insert(bottle)
         }
         try? save()
+    }
+    
+    private func getIngredientsDataFromDirectory() {
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent("ingredients.txt")
+        
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let decodedIngredients = try JSONDecoder().decode([Bottle].self, from: jsonData)
+            print("getting saved ingredients succeeded in Ingredient View")
+            self.allIngredients = decodedIngredients
+        } catch {
+            DataPersistenceError.decodingFailed
+            print("here's a parsing error")
+            //return nil
+        }
     }
     
     private func getBottleListDataFromDirectory() {

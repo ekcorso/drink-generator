@@ -11,16 +11,7 @@ struct IngredientView: View {
     @EnvironmentObject var homeBar: HomeBar
     
     var bottles: [Bottle] {
-        if let bottles = CocktailAPI.ingredients {
-            try? save(bottles)
-            return bottles
-        } else {
-            if let bottles = getIngredientsDataFromDirectory() {
-                return bottles
-            }
-        }
-        print("How did we get here?")
-        return [Bottle.example1, Bottle.example2, Bottle.example3]
+        return homeBar.allIngredients ?? [Bottle]()
     }
     
     var filteredBottles: [Bottle] {
