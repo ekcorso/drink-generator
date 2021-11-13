@@ -13,12 +13,12 @@ class HomeBar: ObservableObject {
     @Published var selectedBottle: Bottle?
     
     init() {
-        getBottleListDataFromDirectory()
+        self.bottleList = Set(DataStorage().retrieve(data: .bottleList) ?? [])
        
         if let ingredients = CocktailAPI.ingredients {
             allIngredients = ingredients
         } else {
-            getIngredientsDataFromDirectory()
+            allIngredients = DataStorage().retrieve(data: .ingredients)
         }
     }
     
@@ -26,7 +26,7 @@ class HomeBar: ObservableObject {
         if let bottle = bottle {
             self.selectedBottle = bottle
         }
-        // save
+        // TODO: save
     }
     
     func update(_ selections: Set<UUID>, from bottles: [Bottle]) {
@@ -38,7 +38,7 @@ class HomeBar: ObservableObject {
         var editedBottleList = bottles
         editedBottleList.remove(atOffsets: offsets)
         self.bottleList = Set(editedBottleList)
-        try? save()
+        try? DataStorage().save(data: Array(bottleList), type: .bottleList)
     }
     
     func add(_ selections: Set<UUID>, from bottles: [Bottle]) {
@@ -47,53 +47,6 @@ class HomeBar: ObservableObject {
         for bottle in bottlesToAdd {
             self.bottleList.insert(bottle)
         }
-        try? save()
-    }
-    
-    private func getIngredientsDataFromDirectory() {
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("ingredients.txt")
-        
-        do {
-            let jsonData = try Data(contentsOf: url)
-            let decodedIngredients = try JSONDecoder().decode([Bottle].self, from: jsonData)
-            print("getting saved ingredients succeeded in Ingredient View")
-            self.allIngredients = decodedIngredients
-        } catch {
-            DataPersistenceError.decodingFailed
-            print("here's a parsing error")
-            //return nil
-        }
-    }
-    
-    private func getBottleListDataFromDirectory() {
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
-        
-        do {
-            let jsonData = try Data(contentsOf: url)
-            let decodedBottleList = try JSONDecoder().decode(Set<Bottle>.self, from: jsonData)
-            self.bottleList = decodedBottleList
-        } catch {
-            DataPersistenceError.decodingFailed
-            print("here's a parsing error")
-        }
-    }
-    
-    private func save() throws {
-        guard let encoded = try? JSONEncoder().encode(bottleList) else {
-            print("encoding failed")
-            DataPersistenceError.saveFailed
-            return
-        }
-        
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("bottleList.txt")
-        
-        do {
-            try encoded.write(to: url)
-        } catch {
-            print("save failed")
-        }
+        try? DataStorage().save(data: Array(self.bottleList), type: .bottleList)
     }
 }
