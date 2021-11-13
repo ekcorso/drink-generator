@@ -39,39 +39,6 @@ struct IngredientView: View {
             }
         }
     }
-    
-    func save(_ ingredients: [Bottle]) throws {
-        guard let encoded = try? JSONEncoder().encode(ingredients) else {
-            print("encoding failed")
-            DataPersistenceError.saveFailed
-            return
-        }
-        
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("ingredients.txt")
-        
-        do {
-            try encoded.write(to: url)
-        } catch {
-            print("save failed")
-        }
-    }
-    
-    private func getIngredientsDataFromDirectory() -> [Bottle]? {
-        let fileManager = FileManager()
-        let url = fileManager.getDocumentsDirectory().appendingPathComponent("ingredients.txt")
-        
-        do {
-            let jsonData = try Data(contentsOf: url)
-            let decodedIngredients = try JSONDecoder().decode([Bottle].self, from: jsonData)
-            print("getting saved ingredients succeeded in Ingredient View")
-            return decodedIngredients
-        } catch {
-            DataPersistenceError.decodingFailed
-            print("here's a parsing error")
-            return nil
-        }
-    }
 }
 
 struct IngredientView_Previews: PreviewProvider {
