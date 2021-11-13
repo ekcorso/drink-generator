@@ -32,6 +32,8 @@
 		FCFC1FFE272B11F100D18B9E /* Combinatorics in Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; };
 		FCFC1FFF272B11F100D18B9E /* Combinatorics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = FCFC1FFD272B11F100D18B9E /* Combinatorics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FCFC200A27347D0200D18B9E /* DataPersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200927347D0100D18B9E /* DataPersistenceError.swift */; };
+		FCFC200C273F3D0B00D18B9E /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200B273F3D0A00D18B9E /* DataStorage.swift */; };
+		FCFC200E273F401B00D18B9E /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200D273F401B00D18B9E /* DataType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +76,8 @@
 		FCF28FC926A0B3FB00930F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFC1FFA2728633F00D18B9E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = DrinkGenerator/Helpers/Utilities.swift; sourceTree = SOURCE_ROOT; };
 		FCFC200927347D0100D18B9E /* DataPersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceError.swift; sourceTree = "<group>"; };
+		FCFC200B273F3D0A00D18B9E /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataStorage.swift; path = "DrinkGenerator/Data Model/DataStorage.swift"; sourceTree = SOURCE_ROOT; };
+		FCFC200D273F401B00D18B9E /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 		FCCC9F2C26C1806100C7E043 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				FCFC200B273F3D0A00D18B9E /* DataStorage.swift */,
+				FCFC200D273F401B00D18B9E /* DataType.swift */,
 				FC60341526D967B9003569D7 /* HomeBar.swift */,
 				FCFC1FFA2728633F00D18B9E /* Utilities.swift */,
 				FC92E7B326AF98C7007DAD10 /* Bottle.swift */,
@@ -258,12 +264,14 @@
 				FC464B2726D333500031AEF7 /* ComboView.swift in Sources */,
 				FCA90E2226C5C6AE004B6F11 /* RecipeDetailView.swift in Sources */,
 				FCF28FC326A0B3F600930F0F /* ContentView.swift in Sources */,
+				FCFC200E273F401B00D18B9E /* DataType.swift in Sources */,
 				FC60341626D967B9003569D7 /* HomeBar.swift in Sources */,
 				FCCAD98E26C0CF0C004575F7 /* DrinkList.swift in Sources */,
 				FCFC1FFB2728633F00D18B9E /* Utilities.swift in Sources */,
 				FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */,
 				FC964EC426C2FCAB008C0547 /* RecipeRow.swift in Sources */,
 				FC2FE91126F1316200027342 /* HomeBarView.swift in Sources */,
+				FCFC200C273F3D0B00D18B9E /* DataStorage.swift in Sources */,
 				FC6E0DD426E1438F00740CCB /* RequestType.swift in Sources */,
 				FC8A78AB26C4A65D007B9B90 /* ImageLoader.swift in Sources */,
 				A1B3F1BC26BC89FA002C75C7 /* IngredientView.swift in Sources */,
