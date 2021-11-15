@@ -42,4 +42,36 @@ struct DataStorage {
         }
     }
     
+    func retrieveSelectedIngredient() -> Bottle? {
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent(DataType.selectedBottle.rawValue)
+        
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let decodedData = try JSONDecoder().decode(Bottle.self, from: jsonData)
+            print("getting saved ingredients succeeded in Ingredient View")
+            return decodedData
+        } catch {
+            DataPersistenceError.decodingFailed
+            print("here's a parsing error with Selected Bottle")
+            return nil
+        }
+    }
+    
+    func saveSelectedBottle(data: Bottle) throws {
+        guard let encoded = try? JSONEncoder().encode(data) else {
+            print("encoding failed")
+            DataPersistenceError.saveFailed
+            return
+        }
+        
+        let fileManager = FileManager()
+        let url = fileManager.getDocumentsDirectory().appendingPathComponent(DataType.selectedBottle.rawValue)
+        
+        do {
+            try encoded.write(to: url)
+        } catch {
+            print("save failed")
+        }
+    }
 }

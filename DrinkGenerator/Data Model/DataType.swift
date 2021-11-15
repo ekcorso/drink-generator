@@ -9,5 +9,6 @@ import Foundation
 
 enum DataType: String {
     case ingredients = "ingredients.txt"
-    case bottleList = "botteList.txt"
+    case bottleList = "bottleList.txt"
+    case selectedBottle = "selectedBottle.txt"
 }
