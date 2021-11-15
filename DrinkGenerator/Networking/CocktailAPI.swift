@@ -38,7 +38,6 @@ struct CocktailAPI {
     
     init(requestType: RequestType, selectedBottle: Bottle?) {
         self.init(requestType: requestType)
-        //self.homeBar = homeBar
         self.selectedBottle = selectedBottle
     }
     
@@ -50,14 +49,11 @@ struct CocktailAPI {
     //DrinkStubList (aka RecipeListView's result)
     private func buildDrinkStubListUrl(with bottle: Bottle?) -> String {
         let urlBaseString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-//        guard let bottle = bottle else {
-//            // TODO: handle this
-//            return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
-//        }
         
         if let bottle = bottle {
             return urlBaseString + bottle.snakeName
         } else {
+            // TODO: Update this to return nil instead and handle that in the view
             return "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Gin"
         }
         
@@ -81,7 +77,7 @@ struct CocktailAPI {
     
     //RecipeDetail
     private func buildRecipeDetailUrl(recipeId: Int?) -> String {
-        // TODO: Remove hardcoded ID and handle nil case
+        // TODO: Remove hardcoded ID, update this to return and optional, then handle the nil case in the view instead
         guard let recipeId = recipeId else {
             return "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=12420"
         }

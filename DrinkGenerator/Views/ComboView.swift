@@ -13,10 +13,7 @@ struct ComboView: View {
     var ingredients: [Bottle] {
         Array(homeBar.bottleList)
     }
-    
-    //takenBy is temporarily hardcoded. Still deciding if this should be decided by the user or not
     var takenBy: Int = 3
-    
     @State private var randomCombo = [Bottle]()
     
     var body: some View {
@@ -51,18 +48,6 @@ struct ComboView: View {
                     randomCombo =  Combination(of: ingredients, size: takenBy).map { $0 }.randomElement() ?? [Bottle]()
                 }
             }
-            //        ForEach(Array(zip(allCombos.indicies, allCombos
-            //        )), id: \.0) { index, combo in
-            //            Text("\(combo.description)")
-            //        }
-            //        Button("Print Combos") {
-            //            for combo in allCombos.enumerated() {
-            //                print(combo.element)
-            ////                for item in combo {
-            ////                    print(item.name)
-            ////                }
-            //            }
-            //        }
         } else {
             NavigationView {
                 Text("If you would like to generate combinations, please first select some bottles.")

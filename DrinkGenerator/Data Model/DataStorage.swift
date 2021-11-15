@@ -33,11 +33,9 @@ struct DataStorage {
         do {
             let jsonData = try Data(contentsOf: url)
             let decodedData = try JSONDecoder().decode([Bottle].self, from: jsonData)
-            print("getting saved ingredients succeeded in Ingredient View")
             return decodedData
         } catch {
             DataPersistenceError.decodingFailed
-            print("here's a parsing error")
             return nil
         }
     }
@@ -49,11 +47,9 @@ struct DataStorage {
         do {
             let jsonData = try Data(contentsOf: url)
             let decodedData = try JSONDecoder().decode(Bottle.self, from: jsonData)
-            print("getting saved ingredients succeeded in Ingredient View")
             return decodedData
         } catch {
             DataPersistenceError.decodingFailed
-            print("here's a parsing error with Selected Bottle")
             return nil
         }
     }

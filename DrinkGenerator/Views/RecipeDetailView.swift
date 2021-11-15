@@ -9,18 +9,9 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     let recipe: DrinkStub
-
     var detailedRecipe: Recipe {
         return CocktailAPI(requestType: .recipeDetail, recipeId: recipe.id).fetchRecipe()
     }
-    
-//    let ingredients: [String]
-//        //= [detailedRecipe.strIngredient1]
-//
-//    init(recipe: DrinkStub) {
-//        ingredients = [detailedRecipe.strIngredient1!]
-//        self.recipe = recipe
-//    }
         
     var body: some View {
         VStack {
@@ -39,7 +30,7 @@ struct RecipeDetailView: View {
             Text(detailedRecipe.strInstructions)
                 .padding()
             Divider()
-            Text("Recommended Glassware: \(detailedRecipe.strGlass)")
+            Text("Serve in a \(detailedRecipe.strGlass.lowercased())")
                 .italic()
                 .frame(alignment: .leading)
         }

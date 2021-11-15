@@ -17,12 +17,10 @@ struct Recipe: Codable {
     
     let strGlass: String
     
-    //Should the drink thumbnail be a URL or an image? it would need to fetch the image from the url in order to load it
     let strDrinkThumb: String
     
     let strInstructions: String
     
-    //Ingredients and Measures can be null, so they are optionals
     let strIngredient1: String?
     let strIngredient2: String?
     let strIngredient3: String?
