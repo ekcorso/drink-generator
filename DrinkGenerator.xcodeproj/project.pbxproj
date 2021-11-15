@@ -34,6 +34,7 @@
 		FCFC200A27347D0200D18B9E /* DataPersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200927347D0100D18B9E /* DataPersistenceError.swift */; };
 		FCFC200C273F3D0B00D18B9E /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200B273F3D0A00D18B9E /* DataStorage.swift */; };
 		FCFC200E273F401B00D18B9E /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200D273F401B00D18B9E /* DataType.swift */; };
+		FCFC201027420B3600D18B9E /* ReceipeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC200F27420B3600D18B9E /* ReceipeTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +79,7 @@
 		FCFC200927347D0100D18B9E /* DataPersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceError.swift; sourceTree = "<group>"; };
 		FCFC200B273F3D0A00D18B9E /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataStorage.swift; path = "DrinkGenerator/Data Model/DataStorage.swift"; sourceTree = SOURCE_ROOT; };
 		FCFC200D273F401B00D18B9E /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		FCFC200F27420B3600D18B9E /* ReceipeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceipeTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				A1B3F1BB26BC89FA002C75C7 /* IngredientView.swift */,
 				FCCAD98926BDFB46004575F7 /* RecipeListView.swift */,
 				FCA90E2126C5C6AE004B6F11 /* RecipeDetailView.swift */,
+				FCFC200F27420B3600D18B9E /* ReceipeTextView.swift */,
 				FC2FE91226F80B7D00027342 /* RecipeSettingsView.swift */,
 				FC464B2626D333500031AEF7 /* ComboView.swift */,
 				FC8A78AC26C4AE2F007B9B90 /* ImageView.swift */,
@@ -270,6 +273,7 @@
 				FCFC1FFB2728633F00D18B9E /* Utilities.swift in Sources */,
 				FCF28FC126A0B3F600930F0F /* DrinkGeneratorApp.swift in Sources */,
 				FC964EC426C2FCAB008C0547 /* RecipeRow.swift in Sources */,
+				FCFC201027420B3600D18B9E /* ReceipeTextView.swift in Sources */,
 				FC2FE91126F1316200027342 /* HomeBarView.swift in Sources */,
 				FCFC200C273F3D0B00D18B9E /* DataStorage.swift in Sources */,
 				FC6E0DD426E1438F00740CCB /* RequestType.swift in Sources */,
