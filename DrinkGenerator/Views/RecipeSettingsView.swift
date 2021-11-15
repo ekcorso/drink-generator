@@ -13,7 +13,6 @@ struct RecipeSettingsView: View {
         Array(homeBar.bottleList)
     }
     @State private var selectedBottle = Bottle(name: "Random")
-    
     //This is currently unused
     @State private var wantsRandomRecipes: Bool = false
 
@@ -41,8 +40,10 @@ struct RecipeSettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-            .onDisappear {
-                print("Selected bottle in Settings is \(homeBar.selectedBottle?.name)")
+            .onAppear {
+                if let selectedBottle = homeBar.selectedBottle {
+                    self.selectedBottle = selectedBottle
+                }
             }
         }
     }

@@ -14,19 +14,21 @@ class HomeBar: ObservableObject {
     
     init() {
         self.bottleList = Set(DataStorage().retrieve(data: .bottleList) ?? [])
-       
+        self.selectedBottle = DataStorage().retrieveSelectedIngredient() ?? Bottle(name: "None")
+        
         if let ingredients = CocktailAPI.ingredients {
             allIngredients = ingredients
         } else {
             allIngredients = DataStorage().retrieve(data: .ingredients)
         }
+        
     }
     
     func setSelectedBottle(bottle: Bottle?) {
         if let bottle = bottle {
             self.selectedBottle = bottle
+            try? DataStorage().saveSelectedBottle(data: bottle)
         }
-        // TODO: save
     }
     
     func update(_ selections: Set<UUID>, from bottles: [Bottle]) {
